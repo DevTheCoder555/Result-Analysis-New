@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Result Analysis – Ajay Kumar Garg Engineering College</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   AKGEC RESULT ANALYSIS — Upload App Styles
+   ═══════════════════════════════════════════════ */
+:root {
+  --bg: #060810;
+  --surface: #0e1120;
+  --card: #131828;
+  --card2: #181e30;
+  --border: #1e2644;
+  --border2: #252e50;
+  --accent1: #4f8dff;
+  --accent2: #7c5cfc;
+  --accent3: #00d4aa;
+  --accent4: #ff6b6b;
+  --accent5: #ffc107;
+  --text: #e8eaf6;
+  --muted: #6b7280;
+  --highlight: #a78bfa;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Background decoration ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% -10%, rgba(79,141,255,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 100%, rgba(124,92,252,.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 60% 40%, rgba(0,212,170,.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Header ── */
+.header-top{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  
+}
+.header{
+  .logo{max-width: 80px; /* Example max width */
+  height: auto;     }
+  display: flex;
+}
+.header-sub{
+  display: flex;
+  gap: 12px;
+  margin-left: 20px; /* Align with text in header-top */
+  margin-top: 28px;
+}
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(6,8,16,.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 clamp(16px, 4vw, 56px);
+  
+}
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 64px;
+}
+.logo-mark {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent2), var(--accent1));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: .8rem;
+  color: #fff;
+  flex-shrink: 0;
+  letter-spacing: -.02em;
+}
+.header-title {
+  flex: 1;
+  min-width: 0;
+}
+.header-title h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(.78rem, 1.4vw, 1rem);
+  letter-spacing: -.02em;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.header-title p {
+  font-size: .68rem;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  margin-top: 1px;
+}
+.header-pill {
+  background: rgba(79,141,255,.12);
+  border: 1px solid rgba(79,141,255,.25);
+  color: var(--accent1);
+  font-size: .65rem;
+  font-family: 'DM Mono', monospace;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ── Main layout ── */
+.app-main {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 60px) clamp(16px, 4vw, 56px);
+}
+
+/* ── Hero section ── */
+.hero {
+  text-align: center;
+  padding: clamp(32px, 2.5vw, 80px) 0 clamp(40px, 6vw, 70px);
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(124,92,252,.1);
+  border: 1px solid rgba(124,92,252,.25);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: .7rem;
+  font-family: 'DM Mono', monospace;
+  color: var(--highlight);
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--highlight);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .4; transform: scale(1.4); }
+}
+.hero h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 5vw, 3.6rem);
+  letter-spacing: -.04em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #e8eaf6 30%, var(--highlight) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: clamp(.88rem, 1.5vw, 1.05rem);
+  color: var(--muted);
+  max-width: 540px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+/* ── Upload card ── */
+.upload-zone-wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.upload-zone {
+  border: 2px dashed var(--border2);
+  border-radius: 20px;
+  padding: clamp(32px, 5vw, 56px) clamp(24px, 4vw, 48px);
+  text-align: center;
+  cursor: pointer;
+  transition: all .3s ease;
+  background: rgba(14,17,32,.6);
+  position: relative;
+  overflow: hidden;
+}
+.upload-zone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 120%, rgba(79,141,255,.06) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.upload-zone:hover, .upload-zone.drag-over {
+  border-color: var(--accent1);
+  background: rgba(79,141,255,.05);
+}
+.upload-zone:hover::before, .upload-zone.drag-over::before {
+  opacity: 1;
+}
+.upload-zone.drag-over {
+  border-color: var(--accent3);
+  background: rgba(0,212,170,.06);
+  transform: scale(1.01);
+}
+.upload-icon {
+  width: 72px; height: 72px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(79,141,255,.15), rgba(124,92,252,.15));
+  border: 1px solid rgba(79,141,255,.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  transition: transform .3s;
+}
+.upload-zone:hover .upload-icon {
+  transform: translateY(-4px) scale(1.05);
+}
+.upload-zone h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  letter-spacing: -.02em;
+}
+.upload-zone p {
+  font-size: .85rem;
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--accent2), var(--accent1));
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 28px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: all .2s;
+  box-shadow: 0 4px 24px rgba(79,141,255,.25);
+}
+.upload-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(79,141,255,.35);
+}
+.upload-btn:active { transform: translateY(0); }
+#fileInput { display: none; }
+.upload-formats {
+  margin-top: 16px;
+  font-size: .7rem;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+}
+
+/* ── Config panel ── */
+.config-panel {
+  display: none;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: clamp(20px, 3vw, 32px);
+  margin-top: 16px;
+  animation: slideUp .3s ease;
+}
+.config-panel.visible { display: block; }
+@keyframes slideUp {
+  from { opacity:0; transform:translateY(12px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.config-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.config-header h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+}
+.file-badge {
+  background: rgba(0,212,170,.1);
+  border: 1px solid rgba(0,212,170,.25);
+  color: var(--accent3);
+  font-size: .7rem;
+  font-family: 'DM Mono', monospace;
+  padding: 4px 10px;
+  border-radius: 8px;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.config-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+@media(max-width:600px){ .config-grid { grid-template-columns: 1fr; } }
+.config-field label {
+  display: block;
+  font-size: .68rem;
+  font-family: 'DM Mono', monospace;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin-bottom: 6px;
+}
+.config-field input, .config-field select {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-size: .85rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  outline: none;
+  transition: border-color .2s;
+}
+.config-field input:focus, .config-field select:focus {
+  border-color: var(--accent1);
+}
+.config-field select option { background: var(--card); }
+
+/* Sheet mapping table */
+.sheets-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+.sheets-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .82rem;
+  min-width: 400px;
+}
+.sheets-table th {
+  font-size: .62rem;
+  font-family: 'DM Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.sheets-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(30,38,68,.5);
+  vertical-align: middle;
+}
+.sheets-table tr:last-child td { border-bottom: none; }
+.sheets-table input, .sheets-table select {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 7px 10px;
+  color: var(--text);
+  font-size: .78rem;
+  font-family: 'DM Mono', monospace;
+  outline: none;
+}
+.sheets-table input:focus, .sheets-table select:focus {
+  border-color: var(--accent1);
+}
+.sheet-check {
+  appearance: none;
+  width: 18px; height: 18px;
+  border: 2px solid var(--border2);
+  border-radius: 5px;
+  cursor: pointer;
+  background: var(--surface);
+  flex-shrink: 0;
+  position: relative;
+  transition: all .2s;
+  display: inline-block;
+  vertical-align: middle;
+}
+.sheet-check:checked {
+  background: var(--accent1);
+  border-color: var(--accent1);
+}
+.sheet-check:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: .75rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ── Generate button ── */
+.generate-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all .25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 28px rgba(79,141,255,.3);
+}
+.generate-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 36px rgba(79,141,255,.45);
+}
+.generate-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+/* ── Progress / loading ── */
+.progress-card {
+  display: none;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 16px;
+  text-align: center;
+}
+.progress-card.visible { display: block; animation: slideUp .3s ease; }
+.progress-spinner {
+  width: 40px; height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent1);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 14px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.progress-steps {
+  list-style: none;
+  text-align: left;
+  max-width: 320px;
+  margin: 16px auto 0;
+  font-size: .8rem;
+}
+.progress-steps li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+}
+.progress-steps li.done { color: var(--accent3); }
+.progress-steps li.active { color: var(--text); }
+.step-icon { width: 18px; text-align: center; flex-shrink: 0; }
+
+/* ── History cards ── */
+.history-section {
+  margin-top: clamp(40px, 6vw, 80px);
+}
+.history-section h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.history-section h2 span {
+  background: rgba(167,139,250,.1);
+  border: 1px solid rgba(167,139,250,.2);
+  color: var(--highlight);
+  font-family: 'DM Mono', monospace;
+  font-size: .7rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.history-empty {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: .88rem;
+}
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.history-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  transition: all .2s;
+  position: relative;
+  overflow: hidden;
+}
+.history-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--accent1), var(--accent2));
+  border-radius: 3px 0 0 3px;
+}
+.history-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+}
+.history-card-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .9rem;
+  margin-bottom: 4px;
+  padding-left: 12px;
+}
+.history-card-meta {
+  font-size: .72rem;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  padding-left: 12px;
+  margin-bottom: 14px;
+}
+.history-card-actions {
+  display: flex;
+  gap: 8px;
+  padding-left: 12px;
+}
+.hc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: .72rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid;
+  text-decoration: none;
+  transition: all .15s;
+}
+.hc-btn-open {
+  background: rgba(79,141,255,.1);
+  border-color: rgba(79,141,255,.3);
+  color: var(--accent1);
+}
+.hc-btn-open:hover { background: rgba(79,141,255,.2); }
+.hc-btn-dl {
+  background: rgba(0,212,170,.1);
+  border-color: rgba(0,212,170,.3);
+  color: var(--accent3);
+}
+.hc-btn-dl:hover { background: rgba(0,212,170,.2); }
+.hc-btn-del {
+  background: rgba(255,107,107,.08);
+  border-color: rgba(255,107,107,.2);
+  color: var(--accent4);
+  margin-left: auto;
+}
+.hc-btn-del:hover { background: rgba(255,107,107,.18); }
+
+/* ── Features strip ── */
+.features-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: clamp(24px, 4vw, 48px) auto;
+  max-width: 900px;
+}
+.feature-tile {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 16px;
+  text-align: center;
+}
+.feature-tile .ft-icon {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+.feature-tile h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .85rem;
+  margin-bottom: 4px;
+}
+.feature-tile p {
+  font-size: .72rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── Toast ── */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.toast {
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: .82rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+  animation: toastIn .3s ease;
+  max-width: 340px;
+}
+.toast.success { border-color: rgba(0,212,170,.3); }
+.toast.error   { border-color: rgba(255,107,107,.3); }
+@keyframes toastIn {
+  from { opacity:0; transform:translateX(20px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+
+/* ── Responsive ── */
+@media(max-width:480px){
+  .hero h2 { font-size: 1.6rem; }
+  .header-pill { display: none; }
+  .history-grid { grid-template-columns: 1fr; }
+  .upload-zone { padding: 28px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-top">
+      <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnpwqdLfWAxdiO0xWBfZTxqYVFrx50jjMz_Q&s" alt="na">
+      <h1>AJAY KUMAR GARG ENGINEERING COLLEGE</h1>
+  </div>
+  <div class="header-sub">
+    <div class="badge">(B.Tech CSE-AIML & CSE-DS)  </div>
+    <div class="badge">Result Analysis Dashboard </div>
+  </div>
+</div>
+
+<!-- Main -->
+<main class="app-main">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-eyebrow">Result Analysis System</div>
+    <h2>Upload. Analyse.<br>Publish Results.</h2>
+    <p>Upload any Excel result sheet to instantly generate a complete, interactive result analysis dashboard for any year or section.</p>
+  </section>
+
+  <!-- Upload zone -->
+  <div class="upload-zone-wrapper">
+    <div class="upload-zone" id="dropZone"
+         ondragover="onDragOver(event)"
+         ondragleave="onDragLeave(event)"
+         ondrop="onDrop(event)"
+         onclick="document.getElementById('fileInput').click()">
+      <div class="upload-icon">📊</div>
+      <h3>Drop your Excel result sheet here</h3>
+      <p>Drag &amp; drop or click to select an <strong>.xlsx</strong> file.<br>
+         Each sheet should represent one class section.</p>
+      <button class="upload-btn" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">
+        📂 Add Excel File
+      </button>
+      <div class="upload-formats">Accepts: .xlsx · .xls</div>
+    </div>
+    <input type="file" id="fileInput" accept=".xlsx,.xls" onchange="onFileSelect(event)">
+
+    <!-- Config panel (shown after file select) -->
+    <div class="config-panel" id="configPanel">
+      <div class="config-header">
+        <h3>📋 Configure Analysis</h3>
+        <div class="file-badge" id="fileBadge">—</div>
+      </div>
+
+      <div class="config-grid">
+        <div class="config-field">
+          <label>Academic Year</label>
+          <select id="cfgYear">
+            <option value="2nd">2nd Year (Sem III)</option>
+            <option value="3rd" selected>3rd Year (Sem V)</option>
+            <option value="4th">4th Year (Sem VII)</option>
+            <option value="1st">1st Year (Sem I)</option>
+            <option value="custom">Custom…</option>
+          </select>
+        </div>
+        <div class="config-field">
+          <label>Semester Label</label>
+          <input type="text" id="cfgSem" value="Sem V" placeholder="e.g. Sem V"/>
+        </div>
+      </div>
+
+      <!-- Sheet mapping table -->
+      <div class="sheets-table-wrap">
+        <table class="sheets-table">
+          <thead>
+            <tr>
+              <th>✓</th>
+              <th>Sheet Name (Excel)</th>
+              <th>Section Key</th>
+              <th>Display Label</th>
+            </tr>
+          </thead>
+          <tbody id="sheetRows"></tbody>
+        </table>
+      </div>
+
+      <button class="generate-btn" id="generateBtn" onclick="startGenerate()">
+        ⚡ Generate Result Analysis
+      </button>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-card" id="progressCard">
+      <div class="progress-spinner"></div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;margin-bottom:6px">Generating Analysis…</div>
+      <div style="font-size:.78rem;color:var(--muted)" id="progressMsg">Reading Excel data…</div>
+      <ul class="progress-steps" id="progressSteps">
+        <li id="step1"><span class="step-icon">⏳</span> Parsing Excel sheets</li>
+        <li id="step2"><span class="step-icon">⏳</span> Computing SGPA &amp; grades</li>
+        <li id="step3"><span class="step-icon">⏳</span> Building rank lists</li>
+        <li id="step4"><span class="step-icon">⏳</span> Generating HTML dashboard</li>
+        <li id="step5"><span class="step-icon">⏳</span> Opening in new tab</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Feature tiles -->
+  <div class="features-strip">
+    <div class="feature-tile">
+      <div class="ft-icon">📊</div>
+      <h4>Section Analysis</h4>
+      <p>Grade distribution, pass rates, and SGPA charts per section</p>
+    </div>
+    <div class="feature-tile">
+      <div class="ft-icon">🏆</div>
+      <h4>Rank Lists</h4>
+      <p>Complete rank list with SGPA, grade, and percentage</p>
+    </div>
+    <div class="feature-tile">
+      <div class="ft-icon">🧑‍🎓</div>
+      <h4>Student Cards</h4>
+      <p>Click any student for full subject-wise breakdown</p>
+    </div>
+    <div class="feature-tile">
+      <div class="ft-icon">💾</div>
+      <h4>Download</h4>
+      <p>Save each analysis as a standalone HTML file</p>
+    </div>
+  </div>
+
+  <!-- History -->
+  <section class="history-section">
+    <h2>Generated Analyses <span id="historyCount">0</span></h2>
+    <div id="historyContainer">
+      <div class="history-empty">
+        No analyses generated yet. Upload an Excel file above to get started.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Toast container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- SheetJS for Excel parsing -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   EMBEDDED DASHBOARD CSS & RUNTIME JS
+   (extracted from the production dashboard)
+   ══════════════════════════════════════════════════════ */
+
+// ─── These will be filled by the Python build step ───
+let DASHBOARD_CSS = '';
+let RUNTIME_JS = '';
+
+/* ══════════════════════════════════════════════════════
+   GRADE & SGPA UTILITIES
+   ══════════════════════════════════════════════════════ */
+function calcGrade(pct) {
+  if (pct >= 90) return 'O';
+  if (pct >= 80) return 'A+';
+  if (pct >= 70) return 'A';
+  if (pct >= 60) return 'B+';
+  if (pct >= 50) return 'B';
+  return 'F';
+}
+
+const GRADE_POINTS = { O: 10, 'A+': 9, A: 8, 'B+': 7, B: 6, C: 5, P: 4, F: 0 };
+
+function guessCredit(totalMax) {
+  if (totalMax >= 150) return 2;
+  if (totalMax === 100) return 4;
+  if (totalMax <= 50) return 1;
+  return 4;
+}
+
+function calcSGPA(subjects) {
+  let pts = 0, cr = 0;
+  for (const s of subjects) {
+    const c = guessCredit(s.total_max);
+    pts += c * (GRADE_POINTS[s.grade] || 0);
+    cr += c;
+  }
+  return cr > 0 ? Math.round((pts / cr) * 100) / 100 : 0;
+}
+
+function sgpaGradeLabel(v) {
+  if (v >= 9) return 'O';
+  if (v >= 8) return 'A+';
+  if (v >= 7) return 'A';
+  if (v >= 6) return 'B+';
+  if (v >= 5) return 'B';
+  return 'F';
+}
+
+/* ══════════════════════════════════════════════════════
+   EXCEL PARSER
+   ══════════════════════════════════════════════════════ */
+function parseSheet(worksheet) {
+  const ref = worksheet['!ref'];
+  if (!ref) return [];
+
+  const range = XLSX.utils.decode_range(ref);
+  const rows = [];
+  for (let r = range.s.r; r <= range.e.r; r++) {
+    const row = [];
+    for (let c = range.s.c; c <= range.e.c; c++) {
+      const cell = worksheet[XLSX.utils.encode_cell({ r, c })];
+      row.push(cell ? cell.v : null);
+    }
+    rows.push(row);
+  }
+
+  // Find header row
+  let headerRowIdx = -1;
+  for (let i = 0; i < Math.min(rows.length, 12); i++) {
+    const rowStr = rows[i].map(v => String(v || '').toUpperCase()).join('|');
+    if (rowStr.includes('ROLL') && rowStr.includes('NAME')) {
+      headerRowIdx = i;
+      break;
+    }
+    if (rowStr.includes('S.NO')) {
+      headerRowIdx = i;
+      break;
+    }
+  }
+  if (headerRowIdx === -1) return [];
+
+  const header = rows[headerRowIdx];
+
+  // Detect subject column groups
+  const subjectDefs = [];
+  let col = 0;
+  while (col < header.length) {
+    const raw = String(header[col] || '').trim();
+    const val = raw.toUpperCase().replace(/\s+/g, '');
+
+    // Skip known metadata
+    if (['SNO','S.NO','S.NO.','ROLLNO','ROLLNO.','ROLL','NAME','SEMESTER','SEM'].includes(val) || val === '') {
+      col++; continue;
+    }
+
+    // Subject code pattern: letters + digits (e.g. BCS501, BCAI551, BNC501)
+    if (/^[A-Z]{2,6}\d{2,4}$/.test(val)) {
+      const n1 = String(header[col+1] || '').trim().toLowerCase();
+      const n2 = String(header[col+2] || '').trim().toLowerCase();
+
+      // Case 1: code in header, int/ext in next cols
+      if ((n1 === 'int' || n1 === 'internal') && (n2 === 'ext' || n2 === 'external')) {
+        const { intMax, extMax } = detectMaxMarks(rows, headerRowIdx+1, col+1, col+2);
+        subjectDefs.push({ code: val, codeCol: -1, intCol: col+1, extCol: col+2, intMax, extMax });
+        col += 3; continue;
+      }
+      // Case 2: code in header, only int (single-value subjects like project)
+      if ((n1 === 'int' || n1 === 'internal') && !(n2 === 'ext' || n2 === 'external')) {
+        const { intMax } = detectMaxMarks(rows, headerRowIdx+1, col+1, -1);
+        subjectDefs.push({ code: val, codeCol: -1, intCol: col+1, extCol: -1, intMax, extMax: 0 });
+        col += 2; continue;
+      }
+      // Case 3: code repeats in data rows (code printed per student row)
+      const dataVals = rows.slice(headerRowIdx+1, Math.min(headerRowIdx+5, rows.length))
+        .map(r => String(r[col] || '').trim().toUpperCase().replace(/\s+/g,''));
+      const n1v = parseFloat(String(rows[headerRowIdx+1]?.[col+1] ?? ''));
+      const n2v = parseFloat(String(rows[headerRowIdx+1]?.[col+2] ?? ''));
+      if (!isNaN(n1v) && !isNaN(n2v)) {
+        // Data in col+1 and col+2 look like marks
+        const { intMax, extMax } = detectMaxMarks(rows, headerRowIdx+1, col+1, col+2);
+        subjectDefs.push({ code: val, codeCol: col, intCol: col+1, extCol: col+2, intMax, extMax });
+        col += 3; continue;
+      }
+    }
+    col++;
+  }
+
+  if (subjectDefs.length === 0) return [];
+
+  // Find roll and name columns
+  const rollCol = header.findIndex(v => /ROLL/i.test(String(v||'')));
+  const nameCol = header.findIndex(v => /^NAME$/i.test(String(v||'').trim()));
+
+  if (rollCol < 0) return [];
+
+  const students = [];
+  for (let ri = headerRowIdx + 1; ri < rows.length; ri++) {
+    const row = rows[ri];
+    const rollRaw = row[rollCol];
+    if (rollRaw == null || rollRaw === '') continue;
+    let roll = String(rollRaw).trim().replace(/\.0$/, '');
+    if (!/\d{8,}/.test(roll)) continue;
+
+    const name = nameCol >= 0 ? String(row[nameCol] || '').trim() : '';
+    if (!name || name === '' || /^nan$/i.test(name)) continue;
+
+    const subjects = [];
+    for (const def of subjectDefs) {
+      // Dynamic code from data row (electives differ per student)
+      let code = def.code;
+      if (def.codeCol >= 0) {
+        const dc = String(row[def.codeCol]||'').trim().replace(/\s+/g,'').toUpperCase();
+        if (dc && /[A-Z]\d/.test(dc)) code = dc;
+      }
+
+      const intVal = parseNum(row[def.intCol]);
+      const extVal = def.extCol >= 0 ? parseNum(row[def.extCol]) : 0;
+      const intMax = def.intMax || 30;
+      const extMax = def.extMax || (def.extCol >= 0 ? 70 : 0);
+      const total = intVal + extVal;
+      const totalMax = intMax + extMax;
+      const pct = totalMax > 0 ? (total / totalMax) * 100 : 0;
+      const grade = calcGrade(pct);
+
+      let status;
+      if (def.extCol < 0) {
+        status = pct >= 50 ? 'pass' : 'fail';
+      } else {
+        const extMin = Math.ceil(0.36 * extMax);
+        status = (extVal >= extMin && pct >= 40) ? 'pass' : 'fail';
+      }
+
+      subjects.push({
+        code, name: code,
+        int: intVal, int_max: intMax,
+        ext: extVal, ext_max: extMax,
+        total, total_max: totalMax,
+        grade, status
+      });
+    }
+
+    if (subjects.length === 0) continue;
+
+    const obtained = subjects.reduce((a, s) => a + s.total, 0);
+    const maxTotal = subjects.reduce((a, s) => a + s.total_max, 0);
+    const pct = maxTotal > 0 ? Math.round(obtained / maxTotal * 10000) / 100 : 0;
+    const failSubs = subjects.filter(s => s.status === 'fail').map(s => s.code);
+    const backSubs = subjects.filter(s => s.total < 30).map(s => s.code);
+    const sgpa = calcSGPA(subjects);
+
+    students.push({
+      roll, name, subjects,
+      obtained, max_total: maxTotal,
+      percentage: pct,
+      fail_subs: failSubs,
+      back_subs: backSubs,
+      remarks: backSubs.length > 0 ? 'Back Paper' : 'All Clear',
+      sgpa
+    });
+  }
+  return students;
+}
+
+function parseNum(v) {
+  if (v == null || v === '') return 0;
+  const n = parseFloat(String(v));
+  return isNaN(n) ? 0 : Math.round(n);
+}
+
+function detectMaxMarks(rows, startRow, intCol, extCol) {
+  let maxInt = 0, maxExt = 0;
+  for (let ri = startRow; ri < Math.min(startRow + 15, rows.length); ri++) {
+    const iv = parseFloat(String(rows[ri]?.[intCol] ?? 0));
+    if (!isNaN(iv) && iv > maxInt) maxInt = iv;
+    if (extCol >= 0) {
+      const ev = parseFloat(String(rows[ri]?.[extCol] ?? 0));
+      if (!isNaN(ev) && ev > maxExt) maxExt = ev;
+    }
+  }
+  const snap = v => {
+    for (const b of [30, 50, 70, 100, 150]) if (b >= v) return b;
+    return 100;
+  };
+  return { intMax: snap(maxInt) || 30, extMax: extCol >= 0 ? (snap(maxExt) || 70) : 0 };
+}
+
+/* ══════════════════════════════════════════════════════
+   DATA BUILDERS
+   ══════════════════════════════════════════════════════ */
+function buildSectionData(students) {
+  const sorted = [...students].sort((a, b) => b.sgpa - a.sgpa || b.percentage - a.percentage);
+  const sgpas = sorted.map(s => s.sgpa);
+  const n = sorted.length;
+  const avg = n ? Math.round(sgpas.reduce((a,b)=>a+b,0)/n*100)/100 : 0;
+  const max = n ? Math.max(...sgpas) : 0;
+  const min = n ? Math.min(...sgpas) : 0;
+  const passCount = sorted.filter(s => !s.fail_subs.length).length;
+  const passRate = n ? Math.round(passCount/n*1000)/10 : 0;
+
+  const grades = { O:0,'A+':0,A:0,'B+':0,B:0,Below:0 };
+  for (const s of sorted) {
+    if (s.sgpa >= 9)      grades.O++;
+    else if (s.sgpa >= 8) grades['A+']++;
+    else if (s.sgpa >= 7) grades.A++;
+    else if (s.sgpa >= 6) grades['B+']++;
+    else if (s.sgpa >= 5) grades.B++;
+    else                  grades.Below++;
+  }
+
+  return {
+    n, avg, max, min, pass: passRate, grades,
+    students: sorted.map((s, i) => ({
+      roll: s.roll, name: s.name,
+      sgpa: s.sgpa,
+      pct: Math.round(s.percentage * 10) / 10,
+      rank: i + 1
+    }))
+  };
+}
+
+function buildSubcodeData(yearSections) {
+  const codeMap = {};
+  for (const [sec, students] of Object.entries(yearSections)) {
+    for (const st of students) {
+      for (const sub of st.subjects) {
+        if (!codeMap[sub.code]) codeMap[sub.code] = {};
+        if (!codeMap[sub.code][sec]) codeMap[sub.code][sec] = [];
+        codeMap[sub.code][sec].push(sub);
+      }
+    }
+  }
+  const result = {};
+  for (const [code, secData] of Object.entries(codeMap)) {
+    if (Object.keys(secData).length < 2) continue;
+    result[code] = {};
+    for (const [sec, subs] of Object.entries(secData)) {
+      const n = subs.length;
+      const avgTotal = Math.round(subs.reduce((a,b)=>a+b.total,0)/n*10)/10;
+      const avgPct   = Math.round(subs.reduce((a,b)=>a+b.total/b.total_max*100,0)/n*10)/10;
+      const passPct  = Math.round(subs.filter(s=>s.status==='pass').length/n*1000)/10;
+      const avgInt   = Math.round(subs.reduce((a,b)=>a+b.int,0)/n*10)/10;
+      const avgExt   = Math.round(subs.reduce((a,b)=>a+b.ext,0)/n*10)/10;
+      const grades   = {};
+      for (const s of subs) grades[s.grade] = (grades[s.grade]||0)+1;
+      result[code][sec] = {
+        avg: avgTotal, avg_pct: avgPct, pass_pct: passPct, n,
+        grades, avg_int: avgInt, avg_ext: avgExt,
+        int_max: subs[0].int_max, ext_max: subs[0].ext_max,
+        total_max: subs[0].total_max
+      };
+    }
+  }
+  return result;
+}
+
+/* ══════════════════════════════════════════════════════
+   HTML GENERATOR
+   ══════════════════════════════════════════════════════ */
+function generateDashboardHTML(allData, meta) {
+  // Build DATA, MARKS_LOOKUP, SUBCODE_DATA
+  const DATA = {}, MARKS_LOOKUP = {}, SUBCODE_DATA = {};
+  const years = Object.keys(allData);
+
+  for (const yr of years) {
+    DATA[yr] = {};
+    for (const [sec, students] of Object.entries(allData[yr])) {
+      DATA[yr][sec] = buildSectionData(students);
+      for (const s of students) {
+        MARKS_LOOKUP[s.roll] = {
+          subjects: s.subjects, obtained: s.obtained,
+          max_total: s.max_total, percentage: s.percentage,
+          fail_subs: s.fail_subs, back_subs: s.back_subs,
+          remarks: s.remarks, sgpa: s.sgpa
+        };
+      }
+    }
+    SUBCODE_DATA[yr] = buildSubcodeData(allData[yr]);
+  }
+
+  // YEAR_LABELS, SEC_LABELS, YEAR_COLORS
+  const YEAR_COLORS_MAP = { '2nd':'#4f8dff','3rd':'#00d4aa','4th':'#ffc107','1st':'#ff6b6b','custom':'#a78bfa' };
+  const YEAR_LABELS = {};
+  const SEC_LABELS = {};
+  const YEAR_COLORS = {};
+  for (const yr of years) {
+    const m = meta[yr];
+    YEAR_LABELS[yr] = `${m.label} (${m.semLabel})`;
+    YEAR_COLORS[yr] = YEAR_COLORS_MAP[yr] || '#a78bfa';
+    for (const s of m.sections) SEC_LABELS[s.key] = s.label;
+  }
+
+  // Build year tabs
+  const yearTabs = years.map((yr, i) => {
+    const m = meta[yr];
+    return `<div class="year-tab ${i===0?'active':''}" data-year="${yr}" onclick="switchYear('${yr}')">${m.label} · ${m.semLabel}</div>`;
+  }).join('\n  ');
+
+  // Build year content blocks
+  const yearContents = years.map((yr, i) => {
+    const m = meta[yr];
+    const color = YEAR_COLORS[yr];
+    const secs = Object.keys(allData[yr]);
+    const allSgpas = secs.flatMap(s => DATA[yr][s].students.map(st => st.sgpa));
+    const totalN = secs.reduce((a, s) => a + DATA[yr][s].n, 0);
+    const yearAvg = allSgpas.length ? (allSgpas.reduce((a,b)=>a+b,0)/allSgpas.length).toFixed(2) : '0.00';
+    const topSgpa = allSgpas.length ? Math.max(...allSgpas).toFixed(2) : '0.00';
+    const topSecKey = secs.reduce((best, s) => DATA[yr][s].max > (DATA[yr][best]?.max||0) ? s : best, secs[0]);
+    const topSecLabel = (m.sections.find(s=>s.key===topSecKey)||{label:topSecKey}).label;
+    const aPlusCount = secs.reduce((a, s) => a + DATA[yr][s].students.filter(st=>st.sgpa>=8).length, 0);
+
+    const secTabs = secs.map((sec, si) => {
+      const label = (m.sections.find(s=>s.key===sec)||{label:sec}).label;
+      return `<div class="sec-tab ${si===0?'active':''}" onclick="switchSection('${yr}','${sec}',this)">${label} <span style="opacity:.5;font-size:.7rem">(${DATA[yr][sec].n})</span></div>`;
+    }).join('\n      ');
+
+    const secDivs = secs.map((sec, si) =>
+      `<div class="section-content ${si===0?'active':''}" id="sec-${yr}-${sec}"></div>`
+    ).join('\n  ');
+
+    return `
+<!-- ${yr.toUpperCase()} YEAR -->
+<div class="year-content ${i===0?'active':''}" id="year-${yr}">
+  <div class="year-overview">
+    <div class="overview-card" style="border-color:${color}33"><div class="ov-label">Total Students</div><div class="ov-value" style="color:${color}">${totalN}</div><div class="ov-sub">${secs.length} sections · ${m.semLabel}</div></div>
+    <div class="overview-card gen"><div class="ov-label">Year Avg SGPA</div><div class="ov-value" style="color:var(--highlight)">${yearAvg}</div><div class="ov-sub">Across all sections</div></div>
+    <div class="overview-card gen"><div class="ov-label">Top Scorer SGPA</div><div class="ov-value" style="color:var(--accent3)">${topSgpa}</div><div class="ov-sub">${topSecLabel}</div></div>
+    <div class="overview-card gen"><div class="ov-label">A+ &amp; Above</div><div class="ov-value" style="color:var(--accent5)">${aPlusCount}</div><div class="ov-sub">SGPA ≥ 8.0</div></div>
+  </div>
+  <div class="section-header">
+    <h2>Select Section</h2>
+    <div class="section-tabs">
+      ${secTabs}
+    </div>
+  </div>
+  ${secDivs}
+  <div class="comparison-section">
+    <h2 style="color:${color}">${m.label} — Section Comparison</h2>
+    <div id="cmp-${yr}"></div>
+  </div>
+  <div class="subcode-cmp-section">
+    <h2 style="color:${color}">📊 Subject-wise Section Comparison</h2>
+    <div class="subcode-tabs" id="sctabs-${yr}"></div>
+    <div class="subcode-cmp-card" id="sccmp-${yr}"><p style="color:var(--muted);font-size:.85rem;padding:10px 0">Loading…</p></div>
+  </div>
+</div>`;
+  }).join('\n');
+
+  const initCalls = years.map(yr => `initYear('${yr}');`).join('\n  ');
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Result Analysis – AKGEC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>${DASHBOARD_CSS}</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-top">
+    <div class="college-logo">AK</div>
+    <div class="college-info">
+      <h1>AJAY KUMAR GARG ENGINEERING COLLEGE</h1>
+      <p>Department of Computer Science &amp; Engineering · Ghaziabad (027)</p>
+    </div>
+  </div>
+  <div class="header-sub">
+    <span class="badge">B.Tech CSE</span>
+    <span class="badge">Result Analysis Dashboard</span>
+  </div>
+</div>
+<div class="global-search">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="globalSearch" type="text" placeholder="Search by Roll Number or Name…" autocomplete="off"/>
+    <div class="search-result" id="searchResult"></div>
+  </div>
+</div>
+<div id="studentModal" style="display:none" class="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal-box" id="modalBox"></div>
+</div>
+<div class="year-nav">
+  ${yearTabs}
+  <div class="year-tab" data-year="compare" onclick="switchYear('compare')" style="margin-left:auto;color:var(--highlight)">⚖️ Compare Students</div>
+</div>
+<div class="main">
+${yearContents}
+<div class="year-content" id="year-compare">
+  <div class="comparison-tool">
+    <div class="comparison-tool-title">⚖️ Student vs Student Comparison</div>
+    <div class="comparison-tool-sub">Enter two roll numbers to compare performance head-to-head</div>
+    <div class="cmp-inputs">
+      <div class="cmp-input-group">
+        <label>Student A – Roll Number</label>
+        <div style="position:relative"><span class="cmp-input-icon">🎓</span>
+        <input class="cmp-roll-input" id="cmpRoll1" type="text" placeholder="Roll number…" oninput="cmpPreview(1)"/></div>
+        <div class="cmp-preview" id="cmpPreview1"></div>
+      </div>
+      <div class="cmp-input-group">
+        <label>Student B – Roll Number</label>
+        <div style="position:relative"><span class="cmp-input-icon">🎓</span>
+        <input class="cmp-roll-input" id="cmpRoll2" type="text" placeholder="Roll number…" oninput="cmpPreview(2)"/></div>
+        <div class="cmp-preview" id="cmpPreview2"></div>
+      </div>
+    </div>
+    <button class="cmp-btn" id="cmpBtn" onclick="runComparison()" disabled>Compare →</button>
+    <div class="cmp-result" id="cmpResult"></div>
+  </div>
+</div>
+</div>
+\x3cscript>
+const DATA=${JSON.stringify(DATA)};
+const MARKS_LOOKUP=${JSON.stringify(MARKS_LOOKUP)};
+const SUBCODE_DATA=${JSON.stringify(SUBCODE_DATA)};
+const ROLL_INDEX={};
+const YEAR_LABELS=${JSON.stringify(YEAR_LABELS)};
+const SEC_LABELS=${JSON.stringify(SEC_LABELS)};
+const YEAR_COLORS=${JSON.stringify(YEAR_COLORS)};
+const GRADE_COLORS={'O':'#4f8dff','A+':'#7c5cfc','A':'#00d4aa','B+':'#ffc107','B':'#ff8c42','Below':'#ff6b6b'};
+for(const yr of ${JSON.stringify(years)}){
+  for(const sec of Object.keys(DATA[yr])){
+    for(const s of DATA[yr][sec].students){
+      ROLL_INDEX[s.roll]={student:s,year:yr,sec};
+    }
+  }
+}
+${RUNTIME_JS}
+window.addEventListener('load',()=>{ ${initCalls} });
+\x3c/script>
+</body>
+</html>`;
+}
+
+/* ══════════════════════════════════════════════════════
+   APP STATE & HISTORY
+   ══════════════════════════════════════════════════════ */
+let currentWB = null;
+let currentFileName = '';
+const analysisHistory = []; // { id, title, meta, html, timestamp }
+
+/* ══════════════════════════════════════════════════════
+   UI: FILE DROP & SELECT
+   ══════════════════════════════════════════════════════ */
+function onDragOver(e) {
+  e.preventDefault();
+  document.getElementById('dropZone').classList.add('drag-over');
+}
+function onDragLeave(e) {
+  document.getElementById('dropZone').classList.remove('drag-over');
+}
+function onDrop(e) {
+  e.preventDefault();
+  document.getElementById('dropZone').classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) loadFile(file);
+}
+function onFileSelect(e) {
+  const file = e.target.files[0];
+  if (file) loadFile(file);
+}
+
+function loadFile(file) {
+  if (!file.name.match(/\.(xlsx|xls)$/i)) {
+    toast('error', '⚠️ Please select an .xlsx or .xls file');
+    return;
+  }
+  currentFileName = file.name;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const data = new Uint8Array(e.target.result);
+    try {
+      currentWB = XLSX.read(data, { type: 'array' });
+      showConfig();
+    } catch(err) {
+      toast('error', '⚠️ Could not read Excel file: ' + err.message);
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function showConfig() {
+  document.getElementById('fileBadge').textContent = currentFileName;
+  document.getElementById('configPanel').classList.add('visible');
+  document.getElementById('progressCard').classList.remove('visible');
+  buildSheetRows();
+  toast('success', '✅ File loaded! Configure and generate.');
+}
+
+function buildSheetRows() {
+  const tbody = document.getElementById('sheetRows');
+  tbody.innerHTML = '';
+  currentWB.SheetNames.forEach((name, i) => {
+    const keyGuess = guessSecKey(name);
+    const labelGuess = name.replace(/^cse\s*/i, '').trim() || name;
+    tbody.innerHTML += `
+    <tr>
+      <td><input type="checkbox" class="sheet-check" checked data-idx="${i}"/></td>
+      <td style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted)">${escHtml(name)}</td>
+      <td><input type="text" class="sheet-key" placeholder="e.g. aiml1" value="${keyGuess}" data-idx="${i}"/></td>
+      <td><input type="text" class="sheet-label" placeholder="e.g. CSE AIML-1" value="${escHtml(labelGuess)}" data-idx="${i}"/></td>
+    </tr>`;
+  });
+}
+
+function guessSecKey(name) {
+  const n = name.toLowerCase().replace(/\s+/g,'');
+  if (n.includes('aiml') && n.includes('1')) return 'aiml1';
+  if (n.includes('aiml') && n.includes('2')) return 'aiml2';
+  if (n.includes('ds') && n.includes('1')) return 'ds1';
+  if (n.includes('ds') && n.includes('2')) return 'ds2';
+  if (n.includes('cs') && n.includes('a')) return 'csa';
+  if (n.includes('cs') && n.includes('b')) return 'csb';
+  if (n.includes('cs') && n.includes('c')) return 'csc';
+  if (n.includes('cs') && n.includes('d')) return 'csd';
+  return name.toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,8) || `sec${name[0]}`;
+}
+
+function escHtml(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* Year select auto-updates semester label */
+document.addEventListener('DOMContentLoaded', () => {
+  const semMap = { '2nd':'Sem III','3rd':'Sem V','4th':'Sem VII','1st':'Sem I','custom':'Sem ?' };
+  const yearSel = document.getElementById('cfgYear');
+  const semInp = document.getElementById('cfgSem');
+  yearSel.addEventListener('change', () => {
+    if (semMap[yearSel.value]) semInp.value = semMap[yearSel.value];
+  });
+});
+
+/* ══════════════════════════════════════════════════════
+   GENERATION
+   ══════════════════════════════════════════════════════ */
+async function startGenerate() {
+  if (!currentWB) return;
+
+  // Collect config
+  const yr = document.getElementById('cfgYear').value;
+  const semLabel = document.getElementById('cfgSem').value || 'Sem';
+  const yrLabels = { '2nd':'2nd Year','3rd':'3rd Year','4th':'4th Year','1st':'1st Year','custom':'Custom' };
+  const yrLabel = yrLabels[yr] || yr;
+
+  const checks = document.querySelectorAll('.sheet-check');
+  const keys = document.querySelectorAll('.sheet-key');
+  const labels = document.querySelectorAll('.sheet-label');
+
+  const sheets = [];
+  checks.forEach((chk, i) => {
+    if (chk.checked) {
+      sheets.push({
+        sheetName: currentWB.SheetNames[i],
+        key: keys[i].value.trim() || `sec${i}`,
+        label: labels[i].value.trim() || currentWB.SheetNames[i]
+      });
+    }
+  });
+
+  if (sheets.length === 0) {
+    toast('error', '⚠️ Select at least one sheet');
+    return;
+  }
+
+  // Show progress
+  document.getElementById('progressCard').classList.add('visible');
+  document.getElementById('generateBtn').disabled = true;
+  document.getElementById('configPanel').classList.remove('visible');
+
+  // Steps with async pauses for UI update
+  await setStep(1, 'active'); await sleep(100);
+
+  // Parse all selected sheets
+  const allData = { [yr]: {} };
+  for (const s of sheets) {
+    const ws = currentWB.Sheets[s.sheetName];
+    const students = parseSheet(ws);
+    allData[yr][s.key] = students;
+  }
+
+  await setStep(1, 'done'); await setStep(2, 'active'); await sleep(80);
+  // SGPA already computed during parseSheet
+
+  await setStep(2, 'done'); await setStep(3, 'active'); await sleep(80);
+  // Rank lists built inside generateDashboardHTML
+
+  await setStep(3, 'done'); await setStep(4, 'active'); await sleep(80);
+
+  const meta = {
+    [yr]: {
+      label: yrLabel,
+      semLabel,
+      color: ({ '2nd':'#4f8dff','3rd':'#00d4aa','4th':'#ffc107','1st':'#ff6b6b' }[yr] || '#a78bfa'),
+      sections: sheets.map(s => ({ key: s.key, label: s.label }))
+    }
+  };
+
+  const html = generateDashboardHTML(allData, meta);
+  await setStep(4, 'done'); await setStep(5, 'active'); await sleep(80);
+
+  // Open in new tab
+  const blob = new Blob([html], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  window.open(url, '_blank');
+
+  // Save to history
+  const id = Date.now();
+  const title = `${yrLabel} – ${semLabel}`;
+  analysisHistory.unshift({ id, title, sheets: sheets.map(s=>s.label).join(', '), html, url, timestamp: new Date() });
+  renderHistory();
+
+  await setStep(5, 'done'); await sleep(400);
+
+  // Reset UI
+  document.getElementById('progressCard').classList.remove('visible');
+  document.getElementById('generateBtn').disabled = false;
+  document.getElementById('configPanel').classList.add('visible');
+
+  toast('success', `✅ Analysis opened in new tab! ${sheets.length} section(s) processed.`);
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function setStep(n, state) {
+  const el = document.getElementById(`step${n}`);
+  if (!el) return;
+  el.className = state;
+  el.querySelector('.step-icon').textContent =
+    state === 'done' ? '✅' : state === 'active' ? '⚙️' : '⏳';
+  return sleep(0);
+}
+
+/* ══════════════════════════════════════════════════════
+   HISTORY
+   ══════════════════════════════════════════════════════ */
+function renderHistory() {
+  const container = document.getElementById('historyContainer');
+  const count = document.getElementById('historyCount');
+  count.textContent = analysisHistory.length;
+
+  if (!analysisHistory.length) {
+    container.innerHTML = '<div class="history-empty">No analyses generated yet. Upload an Excel file above to get started.</div>';
+    return;
+  }
+
+  container.innerHTML = `<div class="history-grid">
+    ${analysisHistory.map(a => `
+    <div class="history-card" id="hcard-${a.id}">
+      <div class="history-card-title">${escHtml(a.title)}</div>
+      <div class="history-card-meta">${escHtml(a.sheets)} · ${formatTime(a.timestamp)}</div>
+      <div class="history-card-actions">
+        <a class="hc-btn hc-btn-open" href="${a.url}" target="_blank">↗ Open</a>
+        <button class="hc-btn hc-btn-dl" onclick="downloadAnalysis(${a.id})">⬇ Download</button>
+        <button class="hc-btn hc-btn-del" onclick="deleteAnalysis(${a.id})">✕</button>
+      </div>
+    </div>`).join('')}
+  </div>`;
+}
+
+function downloadAnalysis(id) {
+  const a = analysisHistory.find(x => x.id === id);
+  if (!a) return;
+  const blob = new Blob([a.html], { type: 'text/html' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `AKGEC_Result_Analysis_${a.title.replace(/[^a-zA-Z0-9]+/g,'_')}_${a.id}.html`;
+  link.click();
+}
+
+function deleteAnalysis(id) {
+  const idx = analysisHistory.findIndex(x => x.id === id);
+  if (idx >= 0) { analysisHistory.splice(idx, 1); renderHistory(); }
+}
+
+function formatTime(d) {
+  return d.toLocaleString('en-IN', { day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit' });
+}
+
+/* ══════════════════════════════════════════════════════
+   TOAST
+   ══════════════════════════════════════════════════════ */
+function toast(type, msg) {
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  el.innerHTML = msg;
+  const container = document.getElementById('toastContainer');
+  container.appendChild(el);
+  setTimeout(() => { el.style.opacity='0'; el.style.transform='translateX(20px)'; el.style.transition='all .3s'; setTimeout(()=>el.remove(), 300); }, 3500);
+}
+</script>
+
+<!-- EMBEDDED DASHBOARD CSS & RUNTIME JS (auto-injected by build) -->
+<script id="embeddedAssets">
+DASHBOARD_CSS = "\n\n:root {\n  --bg:#0a0c14; --surface:#111421; --card:#161b2e; --border:#1e2540;\n  --accent1:#4f8dff; --accent2:#7c5cfc; --accent3:#00d4aa;\n  --accent4:#ff6b6b; --accent5:#ffc107; --text:#e8eaf6; --muted:#6b7280;\n  --highlight:#a78bfa; --year2:#4f8dff; --year3:#00d4aa; --year4:#ffc107;\n}\n*{margin:0;padding:0;box-sizing:border-box;}\nbody{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}\n\n/* Header */\n.header{background:linear-gradient(135deg,#0d1124 0%,#111c3a 60%,#0a0c14 100%);border-bottom:1px solid var(--border);padding:24px 40px 18px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);}\n.header-top{display:flex;align-items:center;gap:18px;margin-bottom:8px;}\n.college-logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:#fff;flex-shrink:0;}\n.college-info h1{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;background:linear-gradient(90deg,#fff,var(--accent1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.02em;}\n.college-info p{font-size:0.76rem;color:var(--muted);margin-top:2px;}\n.header-sub{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}\n.badge{background:var(--card);border:1px solid var(--border);padding:3px 10px;border-radius:20px;font-size:0.7rem;font-family:'DM Mono',monospace;color:var(--highlight);letter-spacing:.04em;}\n\n/* Search Bar */\n.global-search{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 40px;position:sticky;top:62px;z-index:99;}\n.search-wrap{max-width:600px;position:relative;}\n.search-input{width:100%;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:11px 16px 11px 44px;color:var(--text);font-size:0.88rem;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:border-color .2s;}\n.search-input:focus{border-color:var(--accent1);}\n.search-input::placeholder{color:var(--muted);}\n.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1rem;pointer-events:none;}\n.search-result{margin-top:10px;display:none;}\n.search-result-card{background:var(--card);border:2px solid var(--accent2);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}\n.sr-rank{font-family:'Syne',sans-serif;font-weight:800;font-size:2.2rem;min-width:60px;text-align:center;}\n.sr-info h3{font-size:1.05rem;font-weight:700;margin-bottom:4px;}\n.sr-info p{font-size:0.76rem;color:var(--muted);}\n.sr-stats{display:flex;gap:16px;margin-left:auto;}\n.sr-stat{text-align:center;}\n.sr-stat .val{font-family:'Syne',sans-serif;font-weight:700;font-size:1.3rem;}\n.sr-stat .lbl{font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-family:'DM Mono',monospace;}\n.search-no-result{color:var(--accent4);font-size:0.85rem;padding:8px 0;}\n\n/* Year Nav */\n.year-nav{display:flex;gap:0;background:var(--card);border-bottom:1px solid var(--border);overflow-x:auto;}\n.year-tab{padding:13px 28px;cursor:pointer;font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;}\n.year-tab.active{color:var(--text);}\n.year-tab[data-year=\"2nd\"].active{border-color:var(--year2);color:var(--year2);}\n.year-tab[data-year=\"3rd\"].active{border-color:var(--year3);color:var(--year3);}\n.year-tab[data-year=\"4th\"].active{border-color:var(--year4);color:var(--year4);}\n.year-tab[data-year=\"compare\"].active{border-color:var(--highlight);color:var(--highlight);}\n.year-tab[data-year=\"compare\"]{border-right:none;}\n.year-tab[data-year=\"compare\"].active{border-color:var(--highlight);color:var(--highlight);}\n\n/* Main */\n.main{max-width:1440px;margin:0 auto;padding:28px 40px;}\n.year-content{display:none;animation:fadeIn .3s ease;}\n.year-content.active{display:block;}\n@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}\n\n/* Overview */\n.year-overview{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px;}\n.overview-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;position:relative;overflow:hidden;}\n.overview-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;}\n.overview-card.y2::before{background:var(--year2);}\n.overview-card.y3::before{background:var(--year3);}\n.overview-card.y4::before{background:var(--year4);}\n.overview-card.gen::before{background:linear-gradient(90deg,var(--accent2),var(--highlight));}\n.ov-label{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-family:'DM Mono',monospace;}\n.ov-value{font-family:'Syne',sans-serif;font-weight:800;font-size:1.9rem;margin:5px 0 2px;}\n.ov-sub{font-size:0.73rem;color:var(--muted);}\n\n/* Section tabs */\n.section-header{margin-bottom:18px;}\n.section-header h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text);margin-bottom:10px;}\n.section-tabs{display:flex;gap:8px;flex-wrap:wrap;}\n.sec-tab{padding:7px 18px;border-radius:8px;cursor:pointer;font-size:0.8rem;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--muted);transition:all .2s;}\n.sec-tab.active{background:var(--surface);border-color:var(--accent2);color:var(--highlight);}\n.sec-tab:hover{color:var(--text);border-color:var(--accent2);}\n.section-content{display:none;}\n.section-content.active{display:block;}\n\n/* Stats Row */\n.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:22px;}\n.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;text-align:center;}\n.stat-label{font-size:0.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-family:'DM Mono',monospace;margin-bottom:6px;}\n.stat-val{font-family:'Syne',sans-serif;font-weight:700;font-size:1.6rem;margin:4px 0;}\n.stat-sub{font-size:0.68rem;color:var(--muted);margin-top:2px;}\n\n/* Grade Distribution Table */\n.grade-dist-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:22px;}\n.grade-dist-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:16px;}\n.grade-dist-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;}\n.grade-tile{border-radius:10px;padding:14px 10px;text-align:center;border:1px solid transparent;}\n.grade-tile-label{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-family:'DM Mono',monospace;margin-bottom:4px;}\n.grade-tile-count{font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;line-height:1;}\n.grade-tile-pct{font-size:0.68rem;color:var(--muted);margin-top:4px;font-family:'DM Mono',monospace;}\n\n/* Grade Bar */\n.grade-bars-section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:22px;}\n.grade-bars-section h3{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:16px;}\n.grade-bar-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;}\n.grade-bar-label{font-size:0.72rem;color:var(--muted);width:60px;text-align:right;font-family:'DM Mono',monospace;flex-shrink:0;}\n.grade-bar-bg{flex:1;height:24px;background:var(--surface);border-radius:6px;overflow:hidden;position:relative;}\n.grade-bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding:0 10px;transition:width .6s cubic-bezier(.4,0,.2,1);}\n.grade-bar-fill span{font-size:0.7rem;font-weight:700;color:#fff;font-family:'DM Mono',monospace;}\n.grade-bar-count{font-size:0.72rem;width:32px;font-family:'DM Mono',monospace;text-align:right;color:var(--muted);}\n\n/* Students Table */\n.students-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:22px;}\n.students-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px;}\n.students-card-header h3{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;color:var(--text);}\n.table-search{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:7px 12px 7px 34px;color:var(--text);font-size:0.8rem;outline:none;width:220px;font-family:'Plus Jakarta Sans',sans-serif;}\n.table-search:focus{border-color:var(--accent1);}\n.table-search-wrap{position:relative;}\n.table-search-wrap::before{content:'\ud83d\udd0d';position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:0.75rem;pointer-events:none;}\n.students-table-wrap{overflow-x:auto;max-height:520px;overflow-y:auto;}\n.students-table-wrap::-webkit-scrollbar{width:4px;height:4px;}\n.students-table-wrap::-webkit-scrollbar-track{background:var(--surface);}\n.students-table-wrap::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}\n.students-table{width:100%;border-collapse:collapse;font-size:0.82rem;}\n.students-table th{font-size:0.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding:10px 14px;text-align:left;font-family:'DM Mono',monospace;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--card);z-index:1;}\n.students-table td{padding:10px 14px;border-bottom:1px solid rgba(30,37,64,0.5);}\n.students-table tr:last-child td{border-bottom:none;}\n.students-table tr:hover td{background:rgba(79,141,255,0.04);}\n.students-table .no-results td{text-align:center;color:var(--muted);padding:24px;}\n.rank-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-family:'Syne',sans-serif;font-weight:700;font-size:0.75rem;}\n.rank-1{background:linear-gradient(135deg,#ffd700,#ff8c00);color:#000;}\n.rank-2{background:linear-gradient(135deg,#c0c0c0,#808080);color:#000;}\n.rank-3{background:linear-gradient(135deg,#cd7f32,#8b4513);color:#fff;}\n.rank-n{background:var(--border);color:var(--muted);}\n.sgpa-pill{padding:3px 10px;border-radius:20px;font-size:0.73rem;font-weight:600;font-family:'DM Mono',monospace;}\n.sgpa-o{background:rgba(79,141,255,.15);color:var(--accent1);}\n.sgpa-ap{background:rgba(0,212,170,.15);color:var(--accent3);}\n.sgpa-a{background:rgba(124,92,252,.15);color:var(--accent2);}\n.sgpa-bp{background:rgba(255,193,7,.15);color:var(--accent5);}\n.sgpa-low{background:rgba(255,107,107,.15);color:var(--accent4);}\n.perc-bar{height:5px;border-radius:3px;background:var(--surface);margin-top:4px;}\n.perc-fill{height:100%;border-radius:3px;}\n.tbl-count{font-size:0.72rem;color:var(--muted);font-family:'DM Mono',monospace;}\n\n/* Section Comparison Table */\n.comparison-section{margin-top:36px;}\n.comparison-section h2{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:18px;}\n.comparison-table-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;}\n.comparison-table-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:0.88rem;color:var(--text);margin-bottom:16px;}\n.cmp-table{width:100%;border-collapse:collapse;font-size:0.83rem;}\n.cmp-table th{font-size:0.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding:9px 14px;text-align:left;font-family:'DM Mono',monospace;border-bottom:1px solid var(--border);}\n.cmp-table td{padding:11px 14px;border-bottom:1px solid rgba(30,37,64,0.5);}\n.cmp-table tr:last-child td{border-bottom:none;}\n.cmp-table tr:hover td{background:rgba(79,141,255,0.04);}\n.sec-name-badge{display:inline-flex;align-items:center;gap:6px;font-weight:700;}\n.sec-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}\n.inline-bar{height:8px;border-radius:4px;background:var(--surface);overflow:hidden;min-width:80px;}\n.inline-bar-fill{height:100%;border-radius:4px;}\n\n/* ===== STUDENT DETAIL MODAL ===== */\n.modal-overlay{position:fixed;inset:0;background:rgba(5,7,18,.88);backdrop-filter:blur(8px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;}\n.modal-box{background:var(--surface);border:1px solid var(--border);border-radius:20px;width:100%;max-width:860px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.7);}\n.modal-box::-webkit-scrollbar{width:4px}\n.modal-box::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}\n.modal-header{padding:24px 28px 0;position:sticky;top:0;background:var(--surface);z-index:2;border-radius:20px 20px 0 0;}\n.modal-close{position:absolute;top:18px;right:18px;background:var(--card);border:1px solid var(--border);color:var(--muted);width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}\n.modal-close:hover{background:var(--accent4);border-color:var(--accent4);color:#fff;}\n.modal-student-hero{display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--border);}\n.modal-rank-badge{width:60px;height:60px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;flex-shrink:0;}\n.modal-student-info h2{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;margin-bottom:4px;}\n.modal-student-info p{font-size:.78rem;color:var(--muted);}\n.modal-stats{display:flex;gap:14px;flex-wrap:wrap;margin-left:auto;}\n.modal-stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 16px;text-align:center;min-width:80px;}\n.modal-stat .mv{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;}\n.modal-stat .ml{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-family:'DM Mono',monospace;margin-top:2px;}\n.modal-body{padding:20px 28px 28px;}\n.modal-section-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:18px 0 12px;}\n.subject-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:8px;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px;transition:border-color .2s;}\n.subject-card:hover{border-color:rgba(79,141,255,.3);}\n.subject-card.fail{border-color:rgba(255,107,107,.35);background:rgba(255,107,107,.04);}\n.subject-card.pass{border-color:rgba(0,212,170,.15);}\n.sub-code{font-family:'DM Mono',monospace;font-size:.75rem;font-weight:600;color:var(--highlight);background:rgba(167,139,250,.12);padding:4px 10px;border-radius:6px;white-space:nowrap;flex-shrink:0;min-width:80px;text-align:center;}\n.sub-marks-detail{display:flex;gap:8px;align-items:center;flex-wrap:wrap;min-width:0;}\n.sub-component{text-align:center;min-width:52px;}\n.sub-comp-label{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-family:'DM Mono',monospace;}\n.sub-comp-val{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;margin-top:2px;}\n.sub-divider{color:var(--muted);font-size:.9rem;}\n.sub-total{text-align:center;min-width:60px;}\n.sub-total-val{font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;}\n.sub-grade-badge{padding:4px 10px;border-radius:8px;font-size:.75rem;font-weight:700;font-family:'DM Mono',monospace;min-width:36px;text-align:center;}\n.sub-status-badge{padding:3px 8px;border-radius:6px;font-size:.66rem;font-weight:700;font-family:'DM Mono',monospace;}\n.status-pass{background:rgba(0,212,170,.15);color:var(--accent3);}\n.status-fail{background:rgba(255,107,107,.15);color:var(--accent4);}\n.modal-remarks-box{background:var(--card);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:10px;margin-top:4px;}\n.remarks-icon{font-size:1.3rem;flex-shrink:0;}\n.remarks-text{font-size:.85rem;font-weight:600;}\n.modal-total-row{background:linear-gradient(135deg,rgba(79,141,255,.08),rgba(124,92,252,.08));border:1px solid rgba(79,141,255,.2);border-radius:12px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:12px;}\n.modal-total-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-family:'DM Mono',monospace;}\n.modal-total-val{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;}\n\n/* ===== STUDENT COMPARISON TOOL ===== */\n.comparison-tool{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:28px;}\n.comparison-tool-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;margin-bottom:6px;display:flex;align-items:center;gap:10px;}\n.comparison-tool-sub{font-size:.78rem;color:var(--muted);margin-bottom:18px;}\n.cmp-inputs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}\n.cmp-input-group{position:relative;}\n.cmp-input-group label{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-family:'DM Mono',monospace;display:block;margin-bottom:6px;}\n.cmp-roll-input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 14px 10px 38px;color:var(--text);font-size:.88rem;font-family:'DM Mono',monospace;outline:none;transition:border-color .2s;}\n.cmp-roll-input:focus{border-color:var(--accent1);}\n.cmp-roll-input.found{border-color:var(--accent3);}\n.cmp-roll-input.notfound{border-color:var(--accent4);}\n.cmp-input-icon{position:absolute;left:12px;bottom:10px;font-size:.85rem;color:var(--muted);}\n.cmp-preview{font-size:.72rem;margin-top:5px;padding:4px 8px;border-radius:6px;font-family:'DM Mono',monospace;min-height:22px;}\n.cmp-preview.found{background:rgba(0,212,170,.1);color:var(--accent3);}\n.cmp-preview.notfound{background:rgba(255,107,107,.1);color:var(--accent4);}\n.cmp-btn{width:100%;background:linear-gradient(135deg,var(--accent2),var(--accent1));border:none;color:#fff;padding:11px;border-radius:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:opacity .2s;}\n.cmp-btn:hover{opacity:.85}\n.cmp-btn:disabled{opacity:.4;cursor:not-allowed;}\n.cmp-result{display:none;margin-top:20px;overflow-x:auto;}\n.cmp-result-table{min-width:380px;}\n.click-hint{font-size:.67rem;color:var(--muted);font-style:italic;margin-left:6px;}\n\n/* ===== SUBJECT CODE SECTION COMPARISON ===== */\n.subcode-cmp-section{margin-top:28px;}\n.subcode-cmp-section h2{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:18px;}\n.subcode-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}\n.subcode-tab{padding:6px 14px;border-radius:8px;cursor:pointer;font-size:.78rem;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--muted);transition:all .2s;font-family:'DM Mono',monospace;}\n.subcode-tab.active{background:var(--accent2);border-color:var(--accent2);color:#fff;}\n.subcode-cmp-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;overflow-x:auto;}\n.subcode-table{width:100%;border-collapse:collapse;font-size:.82rem;min-width:340px;}\n.subcode-table th{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding:10px 14px;text-align:left;font-family:'DM Mono',monospace;border-bottom:1px solid var(--border);white-space:nowrap;}\n.subcode-table td{padding:10px 14px;border-bottom:1px solid rgba(30,37,64,0.5);font-size:.8rem;}\n.subcode-table tr:last-child td{border-bottom:none;}\n.subcode-table tr:hover td{background:rgba(79,141,255,.04);}\n.rank-cell{font-family:'DM Mono',monospace;font-weight:700;}\n.subcode-bar{height:6px;border-radius:3px;background:var(--surface);margin-top:4px;overflow:hidden;}\n.subcode-bar-fill{height:100%;border-radius:3px;}\n/* ================================================================\n   RESPONSIVE\n   ================================================================ */\n\n/* Tablet */\n@media(max-width:900px){\n  .year-overview{grid-template-columns:repeat(2,1fr);}\n  .stats-row{grid-template-columns:repeat(3,1fr);}\n  .grade-dist-grid{grid-template-columns:repeat(3,1fr);}\n  .main{padding:20px 24px;}\n  .global-search{padding:12px 24px;}\n  .cmp-inputs{grid-template-columns:1fr;}\n}\n\n/* Mobile L */\n@media(max-width:600px){\n  .header{padding:12px 14px 10px;}\n  .college-info h1{font-size:.9rem;}\n  .college-info p{font-size:.62rem;}\n  .badge{font-size:.58rem;padding:2px 6px;}\n  .global-search{padding:10px 14px;}\n  .search-wrap{max-width:100%;}\n  .search-result-card{flex-direction:column;gap:10px;padding:14px;}\n  .sr-stats{margin-left:0;width:100%;justify-content:space-around;}\n  .sr-actions{margin-left:0 !important;width:100%;display:flex;gap:8px;margin-top:4px;}\n  .sr-actions button{flex:1;font-size:.72rem !important;padding:7px 4px !important;}\n  .year-tab{padding:10px 12px;font-size:.72rem;}\n  .main{padding:12px 12px;}\n  .year-overview{grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px;}\n  .ov-value{font-size:1.4rem;}\n  .stats-row{grid-template-columns:repeat(2,1fr);gap:8px;}\n  .stat-card{padding:10px 10px;}\n  .stat-val{font-size:1.15rem;}\n  .grade-dist-grid{grid-template-columns:repeat(3,1fr);gap:6px;}\n  .grade-tile{padding:10px 4px;}\n  .grade-tile-count{font-size:1.5rem;}\n  .students-card{padding:14px 10px;}\n  .students-card-header{flex-direction:column;align-items:flex-start;gap:8px;}\n  .table-search-wrap{width:100%;}\n  .table-search{width:100%;}\n  .students-table th:nth-child(6),.students-table td:nth-child(6){display:none;}\n  .students-table th:nth-child(7),.students-table td:nth-child(7){display:none;}\n  .click-hint{display:none;}\n  .comparison-table-card{overflow-x:auto;}\n  .cmp-table{min-width:420px;}\n  .subcode-cmp-card{padding:12px 10px;}\n}\n\n/* Mobile S */\n@media(max-width:420px){\n  .header{padding:10px 12px 8px;}\n  .college-logo{width:32px;height:32px;font-size:11px;}\n  .college-info h1{font-size:.78rem;}\n  .college-info p{font-size:.58rem;}\n  .header-sub{gap:3px;margin-top:3px;}\n  .badge{font-size:.56rem;padding:2px 5px;}\n  .year-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}\n  .year-nav::-webkit-scrollbar{display:none;}\n  .year-tab{padding:9px 10px;font-size:.68rem;flex-shrink:0;}\n  .main{padding:10px 8px;}\n  .year-overview{gap:6px;}\n  .overview-card{padding:10px 10px;}\n  .ov-value{font-size:1.25rem;}\n  .ov-label{font-size:.56rem;}\n  .section-tabs{gap:4px;}\n  .sec-tab{padding:5px 9px;font-size:.66rem;}\n  .stats-row{gap:6px;}\n  .grade-dist-grid{grid-template-columns:repeat(3,1fr);}\n  .grade-bars-section h3,.grade-dist-card h3,.students-card-header h3{font-size:.78rem;}\n  .students-table{font-size:.7rem;}\n  .students-table th{font-size:.54rem;padding:7px 5px;}\n  .students-table td{padding:7px 5px;}\n  .sgpa-pill{font-size:.62rem;padding:2px 5px;}\n  .rank-badge{width:20px;height:20px;font-size:.58rem;}\n  .subcode-tabs{gap:4px;}\n  .subcode-tab{font-size:.68rem;padding:5px 10px;}\n  .subcode-table th{font-size:.58rem;padding:8px 8px;}\n  .subcode-table td{font-size:.7rem;padding:8px 8px;}\n\n  /* Modal as full bottom sheet */\n  .modal-overlay{padding:0;align-items:flex-end;}\n  .modal-box{\n    border-radius:18px 18px 0 0;\n    max-height:92vh;\n    width:100%;\n    max-width:100%;\n  }\n  .modal-box::before{\n    content:'';display:block;width:36px;height:4px;\n    background:var(--border);border-radius:2px;margin:10px auto 0;\n  }\n  .modal-header{padding:12px 14px 0;}\n  .modal-close{top:12px;right:12px;width:28px;height:28px;font-size:.82rem;}\n  .modal-student-hero{flex-direction:column;gap:10px;padding-bottom:12px;}\n  .modal-rank-badge{width:42px;height:42px;font-size:1.1rem;border-radius:9px;}\n  .modal-student-info h2{font-size:.95rem;}\n  .modal-student-info p{font-size:.68rem;}\n  .modal-stats{\n    margin-left:0;width:100%;\n    display:grid;grid-template-columns:repeat(3,1fr);gap:6px;\n  }\n  .modal-stat{padding:7px 6px;min-width:0;}\n  .modal-stat .mv{font-size:.95rem;}\n  .modal-stat .ml{font-size:.54rem;}\n  .modal-body{padding:12px 12px 24px;}\n  .modal-section-title{font-size:.7rem;margin:12px 0 8px;}\n  .subject-card{padding:10px 10px;gap:8px;}\n  .sub-code{font-size:.65rem;padding:3px 8px;min-width:70px;}\n  .sub-marks-detail{gap:6px;}\n  .sub-component{min-width:42px;}\n  .sub-comp-label{font-size:.5rem;}\n  .sub-comp-val{font-size:.8rem;}\n  .sub-total-val{font-size:.85rem;}\n  .sub-grade-badge{font-size:.65rem;padding:3px 7px;}\n  .sub-status-badge{font-size:.58rem;}\n  .modal-total-row{\n    display:grid;grid-template-columns:repeat(2,1fr);\n    gap:8px;padding:10px 12px;\n  }\n  .modal-total-val{font-size:1rem;}\n  .modal-total-label{font-size:.56rem;}\n  .modal-remarks-box{padding:10px 12px;}\n  .remarks-text{font-size:.76rem;}\n\n  /* Compare tool */\n  .comparison-tool{padding:14px 12px;}\n  .cmp-roll-input{font-size:.8rem;}\n  .cmp-btn{font-size:.8rem;padding:10px;}\n}\n";
+RUNTIME_JS = "function sgpaClass(v){ if(v>=9) return 'sgpa-o'; if(v>=8) return 'sgpa-ap'; if(v>=7) return 'sgpa-a'; if(v>=6) return 'sgpa-bp'; return 'sgpa-low'; }\nfunction sgpaGradeLabel(v){ if(v>=9) return 'O'; if(v>=8) return 'A+'; if(v>=7) return 'A'; if(v>=6) return 'B+'; if(v>=5) return 'B'; return 'F'; }\n\nfunction renderSection(yr, sec){\n  const el = document.getElementById(`sec-${yr}-${sec}`);\n  if(el._rendered) return;\n  el._rendered = true;\n\n  const d = DATA[yr][sec];\n  const color = YEAR_COLORS[yr];\n  const passCount = d.students.filter(s=>s.sgpa>=5).length;\n  const passRate = (passCount/d.n*100).toFixed(1);\n\n  el.innerHTML = `\n    <div class=\"stats-row\">\n      <div class=\"stat-card\"><div class=\"stat-label\">Students</div><div class=\"stat-val\" style=\"color:${color}\">${d.n}</div><div class=\"stat-sub\">Enrolled</div></div>\n      <div class=\"stat-card\"><div class=\"stat-label\">Avg SGPA</div><div class=\"stat-val\" style=\"color:var(--accent3)\">${d.avg}</div><div class=\"stat-sub\">Section Mean</div></div>\n      <div class=\"stat-card\"><div class=\"stat-label\">Highest SGPA</div><div class=\"stat-val\" style=\"color:var(--highlight)\">${d.max}</div><div class=\"stat-sub\">${d.students[0].name}</div></div>\n      <div class=\"stat-card\"><div class=\"stat-label\">Lowest SGPA</div><div class=\"stat-val\" style=\"color:var(--accent4)\">${d.min}</div><div class=\"stat-sub\">Needs Support</div></div>\n      <div class=\"stat-card\"><div class=\"stat-label\">Pass Rate</div><div class=\"stat-val\" style=\"color:var(--accent5)\">${passRate}%</div><div class=\"stat-sub\">SGPA \u2265 5.0</div></div>\n    </div>\n    <div class=\"grade-bars-section\">\n      <h3>\ud83d\udcca Grade Distribution</h3>\n      <div id=\"gbars-${yr}-${sec}\"></div>\n    </div>\n    <div class=\"students-card\">\n      <div class=\"students-card-header\">\n        <h3>\ud83c\udf93 All Students \u2014 Complete Rank List</h3>\n        <div style=\"display:flex;align-items:center;gap:10px;\">\n          <span class=\"tbl-count\" id=\"tbl-count-${yr}-${sec}\">${d.n} students</span>\n          <div class=\"table-search-wrap\">\n            <input class=\"table-search\" id=\"tbl-search-${yr}-${sec}\" type=\"text\" placeholder=\"Search name or roll...\" oninput=\"filterTable('${yr}','${sec}')\">\n          </div>\n        </div>\n      </div>\n      <div class=\"students-table-wrap\">\n        <table class=\"students-table\" id=\"tbl-${yr}-${sec}\">\n          <thead><tr>\n            <th>Rank</th><th>Roll No.</th><th>Name</th><th>SGPA</th><th>Grade</th><th>%</th>\n          </tr></thead>\n          <tbody id=\"tbody-${yr}-${sec}\"></tbody>\n        </table>\n      </div>\n    </div>`;\n\n  renderGradeBars(`gbars-${yr}-${sec}`, d.grades, d.n);\n  renderTableBody(yr, sec, d.students);\n}\n\nfunction renderGradeBars(id, grades, total){\n  const el = document.getElementById(id);\n  if(!el) return;\n  const maxCount = Math.max(...Object.values(grades));\n  let html = '';\n  for(const [key, count] of Object.entries(grades)){\n    const pct = maxCount>0 ? (count/maxCount*100) : 0;\n    const dataPct = total>0 ? (count/total*100).toFixed(1) : 0;\n    const c = GRADE_COLORS[key];\n    const label = key==='Below'?'< 5.0 (F)': `${key}`;\n    const rangeLabel = key==='O'?'\u2265 9.0': key==='A+'?'8.0\u20138.99': key==='A'?'7.0\u20137.99': key==='B+'?'6.0\u20136.99': key==='B'?'5.0\u20135.99':'< 5.0';\n    html += `<div class=\"grade-bar-row\">\n      <div class=\"grade-bar-label\">${label}</div>\n      <div class=\"grade-bar-bg\">\n        <div class=\"grade-bar-fill\" style=\"width:${Math.max(pct,count>0?3:0)}%;background:${c}22;border-left:3px solid ${c};\">\n          <span style=\"color:${c}\">${count > 0 ? count + ' students' : ''}</span>\n        </div>\n      </div>\n      <div class=\"grade-bar-count\" style=\"color:${c};font-weight:700\">${dataPct}%</div>\n    </div>`;\n  }\n  el.innerHTML = html;\n}\n\n// renderTableBody overridden below\nfunction filterTable(yr, sec){\n  const q = document.getElementById(`tbl-search-${yr}-${sec}`).value;\n  renderTableBody(yr, sec, DATA[yr][sec].students, q);\n}\n\nfunction renderCompare(yr){\n  const el = document.getElementById(`cmp-${yr}`);\n  if(el._rendered) return;\n  el._rendered = true;\n\n  const secs = ['aiml1','aiml2','ds1','ds2'];\n  const labels = ['CSE AIML-1','CSE AIML-2','CSE DS-1','CSE DS-2'];\n  const color = YEAR_COLORS[yr];\n  const gradeKeys = ['O','A+','A','B+','B','Below'];\n\n  // Section summary table\n  let tableHtml = `<div class=\"comparison-table-card\" style=\"margin-bottom:18px;\">\n    <h3>\ud83d\udccb Section-wise Summary</h3>\n    <table class=\"cmp-table\">\n      <thead><tr>\n        <th>Section</th><th>Students</th><th>Avg SGPA</th><th>Highest</th><th>Lowest</th><th>Pass Rate</th><th>SGPA Distribution</th>\n      </tr></thead>\n      <tbody>`;\n\n  for(let i=0;i<secs.length;i++){\n    const d = DATA[yr][secs[i]];\n    const passCount = d.students.filter(s=>s.sgpa>=5).length;\n    const passRate = (passCount/d.n*100).toFixed(1);\n    const maxSgpa = 10;\n    const fillW = ((d.avg - 5) / 5 * 100).toFixed(1);\n    tableHtml += `<tr>\n      <td><span class=\"sec-name-badge\"><span class=\"sec-dot\" style=\"background:${color}\"></span>${labels[i]}</span></td>\n      <td style=\"font-family:'DM Mono',monospace\">${d.n}</td>\n      <td><span class=\"sgpa-pill ${sgpaClass(d.avg)}\">${d.avg}</span></td>\n      <td style=\"font-family:'DM Mono',monospace;color:var(--accent3);font-weight:700\">${d.max}</td>\n      <td style=\"font-family:'DM Mono',monospace;color:var(--accent4);font-weight:700\">${d.min}</td>\n      <td style=\"font-family:'DM Mono',monospace;font-weight:700;color:${parseFloat(passRate)>=95?'var(--accent3)':'var(--accent5)'}\">${passRate}%</td>\n      <td><div class=\"inline-bar\" style=\"min-width:120px\"><div class=\"inline-bar-fill\" style=\"width:${fillW}%;background:${color}\"></div></div></td>\n    </tr>`;\n  }\n  tableHtml += `</tbody></table></div>`;\n\n  // Grade breakdown table\n  let gradeHtml = `<div class=\"comparison-table-card\">\n    <h3>\ud83c\udfaf Grade Breakdown by Section</h3>\n    <table class=\"cmp-table\">\n      <thead><tr>\n        <th>Section</th>`;\n  for(const g of gradeKeys){\n    gradeHtml += `<th style=\"color:${GRADE_COLORS[g]}\">${g==='Below'?'F (< 5)':g}</th>`;\n  }\n  gradeHtml += `</tr></thead><tbody>`;\n\n  for(let i=0;i<secs.length;i++){\n    const d = DATA[yr][secs[i]];\n    gradeHtml += `<tr><td><span class=\"sec-name-badge\"><span class=\"sec-dot\" style=\"background:${color}\"></span>${labels[i]}</span></td>`;\n    for(const g of gradeKeys){\n      const cnt = d.grades[g]||0;\n      const pct = (cnt/d.n*100).toFixed(0);\n      gradeHtml += `<td style=\"font-family:'DM Mono',monospace\">\n        <span style=\"font-weight:700;color:${GRADE_COLORS[g]}\">${cnt}</span>\n        <span style=\"color:var(--muted);font-size:.7rem\"> (${pct}%)</span>\n      </td>`;\n    }\n    gradeHtml += `</tr>`;\n  }\n  gradeHtml += `</tbody></table></div>`;\n\n  el.innerHTML = tableHtml + gradeHtml;\n}\n\nfunction switchYear(yr){\n  document.querySelectorAll('.year-tab').forEach(t=>t.classList.remove('active'));\n  document.querySelector(`.year-tab[data-year=\"${yr}\"]`).classList.add('active');\n  document.querySelectorAll('.year-content').forEach(c=>c.classList.remove('active'));\n  document.getElementById('year-'+yr).classList.add('active');\n  if(yr !== 'compare') initYear(yr);\n}\n\nfunction switchSection(yr, sec, el){\n  const yc = document.getElementById('year-'+yr);\n  yc.querySelectorAll('.sec-tab').forEach(t=>t.classList.remove('active'));\n  el.classList.add('active');\n  yc.querySelectorAll('.section-content').forEach(c=>c.classList.remove('active'));\n  document.getElementById(`sec-${yr}-${sec}`).classList.add('active');\n  renderSection(yr, sec);\n}\n\nfunction initYear(yr){\n  if(yr === 'compare') return;\n  const firstSec = document.querySelector(`#year-${yr} .section-content.active`);\n  if(firstSec){\n    const parts = firstSec.id.split('-');\n    renderSection(parts[1], parts[2]);\n  }\n  renderCompare(yr);\n  initSubcodeComparison(yr);\n}\n\n// Global Search\ndocument.getElementById('globalSearch').addEventListener('input', function(){\n  const q = this.value.trim();\n  const resultEl = document.getElementById('searchResult');\n  if(q.length < 4){ resultEl.style.display='none'; return; }\n  let match = ROLL_INDEX[q];\n  if(!match){\n    const candidates = Object.keys(ROLL_INDEX).filter(r=>r.startsWith(q));\n    if(candidates.length===1) match = ROLL_INDEX[candidates[0]];\n    else if(candidates.length > 1) {\n      // show count hint\n      resultEl.style.display='block';\n      resultEl.innerHTML = `<div class=\"search-no-result\" style=\"color:var(--accent5)\">\ud83d\udd0d ${candidates.length} students match \u2014 keep typing for exact match</div>`;\n      return;\n    }\n  }\n  if(match){\n    const {student:s, year:yr, sec} = match;\n    const n = DATA[yr][sec].n;\n    const color = YEAR_COLORS[yr];\n    const rc = s.rank===1?'rank-1':s.rank===2?'rank-2':s.rank===3?'rank-3':'rank-n';\n    const grade = sgpaGradeLabel(s.sgpa);\n    const gc = GRADE_COLORS[grade==='F'?'Below':grade]||'var(--muted)';\n    resultEl.style.display='block';\n    resultEl.innerHTML = `<div class=\"search-result-card\">\n      <div style=\"text-align:center\">\n        <div style=\"font-size:.7rem;color:var(--muted);font-family:'DM Mono',monospace;margin-bottom:4px\">SECTION RANK</div>\n        <span class=\"rank-badge ${rc}\" style=\"width:52px;height:52px;font-size:1.4rem\">${s.rank}</span>\n        <div style=\"font-size:.68rem;color:var(--muted);margin-top:4px\">of ${n}</div>\n      </div>\n      <div class=\"sr-info\">\n        <h3>${s.name}</h3>\n        <p style=\"margin-bottom:4px\">${s.roll}</p>\n        <p>${YEAR_LABELS[yr]} \u00b7 ${SEC_LABELS[sec]}</p>\n      </div>\n      <div class=\"sr-stats\">\n        <div class=\"sr-stat\">\n          <div class=\"val\"><span class=\"sgpa-pill ${sgpaClass(s.sgpa)}\" style=\"font-size:.95rem\">${s.sgpa.toFixed(2)}</span></div>\n          <div class=\"lbl\">SGPA</div>\n        </div>\n        <div class=\"sr-stat\">\n          <div class=\"val\" style=\"color:${gc};font-family:'Syne',sans-serif;font-weight:800\">${grade}</div>\n          <div class=\"lbl\">Grade</div>\n        </div>\n        <div class=\"sr-stat\">\n          <div class=\"val\" style=\"font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem\">${s.pct.toFixed(1)}%</div>\n          <div class=\"lbl\">Percentage</div>\n        </div>\n      </div>\n      <div class=\"sr-actions\" style=\"margin-left:auto\">\n        <button onclick=\"goToSection('${yr}','${sec}')\" style=\"background:${color}22;border:1px solid ${color};color:${color};padding:8px 14px;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;\">Go to Section \u2192</button>\n        <button onclick=\"openStudentModal('${s.roll}','${yr}','${sec}')\" style=\"background:var(--accent2);border:none;color:#fff;padding:8px 14px;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;\">\ud83d\udccb View Marks</button>\n      </div>\n    </div>`;\n  } else if(q.length>=8){\n    resultEl.style.display='block';\n    resultEl.innerHTML = `<div class=\"search-no-result\">\u274c No student found with roll number matching \"<strong>${q}</strong>\"</div>`;\n  } else {\n    resultEl.style.display='none';\n  }\n});\n\nfunction goToSection(yr, sec){\n  switchYear(yr);\n  const el = document.querySelector(`#year-${yr} .sec-tab:nth-child(${['aiml1','aiml2','ds1','ds2'].indexOf(sec)+1})`);\n  if(el) switchSection(yr, sec, el);\n  setTimeout(()=>{ document.querySelector('.year-nav').scrollIntoView({behavior:'smooth'}); }, 100);\n}\n\n\n// ===== GRADE COLOR MAP =====\nconst GRADE_COLORS_MAP = {'O':'#4f8dff','A+':'#7c5cfc','A':'#00d4aa','B+':'#ffc107','B':'#ff8c42','F':'#ff6b6b','N/A':'#6b7280'};\n\n// ===== STUDENT DETAIL MODAL =====\nfunction openStudentModal(roll, year, sec) {\n  const ri = ROLL_INDEX[roll];\n  if(!ri) return;\n  const s = ri.student;\n  const m = MARKS_LOOKUP[roll];\n  const color = YEAR_COLORS[year];\n  const rc = s.rank===1?'rank-1':s.rank===2?'rank-2':s.rank===3?'rank-3':'rank-n';\n  const rcStyle = s.rank===1?'background:linear-gradient(135deg,#ffd700,#ff8c00);color:#000':\n                  s.rank===2?'background:linear-gradient(135deg,#c0c0c0,#808080);color:#000':\n                  s.rank===3?'background:linear-gradient(135deg,#cd7f32,#8b4513);color:#fff':\n                  `background:${color}22;color:${color}`;\n  const grade = sgpaGradeLabel(s.sgpa);\n  const gc = GRADE_COLORS[grade==='F'?'Below':grade] || 'var(--muted)';\n  const semLabel = year==='2nd'?'Sem III':year==='3rd'?'Sem V':'Sem VII';\n\n  let subjectsHtml = '';\n  if(m && m.subjects && m.subjects.length) {\n    subjectsHtml = m.subjects.map(sub => {\n      const gradeC = GRADE_COLORS_MAP[sub.grade] || '#6b7280';\n      const pct = sub.total_max > 0 ? Math.round((sub.total/sub.total_max)*100) : 0;\n      const isFail = sub.status === 'fail';\n      const hasComponents = sub.ext_max > 0;\n      \n      let marksHtml = '';\n      if(hasComponents) {\n        const intPct = sub.int_max > 0 ? Math.round((sub.int/sub.int_max)*100) : 0;\n        const extPct = sub.ext_max > 0 ? Math.round((sub.ext/sub.ext_max)*100) : 0;\n        marksHtml = `\n          <div class=\"sub-component\">\n            <div class=\"sub-comp-label\">Internal</div>\n            <div class=\"sub-comp-val\" style=\"color:${intPct>=40?'var(--accent3)':'var(--accent4)'}\">${sub.int}<span style=\"font-size:.65rem;color:var(--muted)\">/${sub.int_max}</span></div>\n          </div>\n          <div class=\"sub-divider\">+</div>\n          <div class=\"sub-component\">\n            <div class=\"sub-comp-label\">External</div>\n            <div class=\"sub-comp-val\" style=\"color:${extPct>=36?'var(--accent3)':'var(--accent4)'}\">${sub.ext}<span style=\"font-size:.65rem;color:var(--muted)\">/${sub.ext_max}</span></div>\n          </div>\n          <div class=\"sub-divider\">=</div>`;\n      }\n      \n      return `<div class=\"subject-card ${isFail?'fail':'pass'}\">\n        <div class=\"sub-code\">${sub.code}</div>\n        <div class=\"sub-marks-detail\">\n          ${marksHtml}\n          <div class=\"sub-total\">\n            <div class=\"sub-comp-label\">Total</div>\n            <div class=\"sub-total-val\" style=\"color:${gradeC}\">${sub.total}<span style=\"font-size:.65rem;color:var(--muted)\">/${sub.total_max}</span></div>\n          </div>\n          <div class=\"sub-grade-badge\" style=\"background:${gradeC}22;color:${gradeC}\">${sub.grade}</div>\n          <div class=\"sub-status-badge ${isFail?'status-fail':'status-pass'}\">${isFail?'FAIL':'PASS'}</div>\n        </div>\n      </div>`;\n    }).join('');\n  }\n\n  // Remarks: \"Back Paper\" if any subject total < 30, else \"All Clear\"\n  const backSubs = m && m.back_subs && m.back_subs.length ? m.back_subs : [];\n  const hasBack = backSubs.length > 0;\n\n  const backPaperHtml = hasBack\n    ? `<div class=\"modal-remarks-box\" style=\"border-color:rgba(255,193,7,.4);background:rgba(255,193,7,.06);\">\n        <div class=\"remarks-icon\">\ud83d\udccb</div>\n        <div style=\"width:100%\">\n          <div style=\"font-size:.68rem;color:var(--muted);font-family:'DM Mono',monospace;margin-bottom:5px;text-transform:uppercase;letter-spacing:.07em\">Remarks</div>\n          <div style=\"font-weight:700;font-size:.9rem;color:#ffc107;margin-bottom:6px;\">Back Paper</div>\n          <div style=\"display:flex;flex-wrap:wrap;gap:5px;\">\n            ${backSubs.map(c=>`<span style=\"background:rgba(255,193,7,.15);color:#ffc107;border:1px solid rgba(255,193,7,.3);border-radius:5px;padding:2px 8px;font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700\">${c}</span>`).join('')}\n          </div>\n        </div>\n      </div>`\n    : `<div class=\"modal-remarks-box\" style=\"border-color:rgba(0,212,170,.3);background:rgba(0,212,170,.04);\">\n        <div class=\"remarks-icon\">\u2705</div>\n        <div>\n          <div style=\"font-size:.68rem;color:var(--muted);font-family:'DM Mono',monospace;margin-bottom:3px;text-transform:uppercase;letter-spacing:.07em\">Remarks</div>\n          <div class=\"remarks-text\" style=\"color:var(--accent3);font-weight:700;\">All Clear</div>\n        </div>\n      </div>`;\n\n  const failSubsHtml = '';\n\n  const totalHtml = m && m.obtained && m.max_total ? `\n    <div class=\"modal-total-row\">\n      <div>\n        <div class=\"modal-total-label\">Total Marks Obtained</div>\n        <div class=\"modal-total-val\" style=\"color:var(--accent1)\">${m.obtained} <span style=\"font-size:.8rem;color:var(--muted);font-weight:400\">/ ${m.max_total}</span></div>\n      </div>\n      <div style=\"text-align:center\">\n        <div class=\"modal-total-label\">Percentage</div>\n        <div class=\"modal-total-val\" style=\"color:var(--accent3)\">${m.percentage ? m.percentage.toFixed(2) : s.pct.toFixed(2)}%</div>\n      </div>\n      <div style=\"text-align:center\">\n        <div class=\"modal-total-label\">SGPA</div>\n        <div class=\"modal-total-val\" style=\"color:${gc}\">${s.sgpa.toFixed(2)}</div>\n      </div>\n      <div style=\"text-align:center\">\n        <div class=\"modal-total-label\">Grade</div>\n        <div class=\"modal-total-val\" style=\"color:${gc}\">${grade}</div>\n      </div>\n      <div style=\"text-align:center\">\n        <div class=\"modal-total-label\">Section Rank</div>\n        <div class=\"modal-total-val\" style=\"color:${color}\">#${s.rank} <span style=\"font-size:.75rem;color:var(--muted);font-weight:400\">of ${DATA[year][sec].n}</span></div>\n      </div>\n    </div>` : '';\n\n  document.getElementById('modalBox').innerHTML = `\n    <div class=\"modal-header\">\n      <button class=\"modal-close\" onclick=\"closeModal()\">\u2715</button>\n      <div class=\"modal-student-hero\">\n        <div class=\"modal-rank-badge\" style=\"${rcStyle}\">#${s.rank}</div>\n        <div class=\"modal-student-info\">\n          <h2>${s.name}</h2>\n          <p style=\"margin-bottom:2px\">${s.roll}</p>\n          <p>${YEAR_LABELS[year]} \u00b7 ${SEC_LABELS[sec]} \u00b7 ${semLabel}</p>\n        </div>\n        <div class=\"modal-stats\">\n          <div class=\"modal-stat\">\n            <div class=\"mv\"><span class=\"sgpa-pill ${sgpaClass(s.sgpa)}\">${s.sgpa.toFixed(2)}</span></div>\n            <div class=\"ml\">SGPA</div>\n          </div>\n          <div class=\"modal-stat\">\n            <div class=\"mv\" style=\"color:${gc};font-size:1.1rem\">${grade}</div>\n            <div class=\"ml\">Grade</div>\n          </div>\n          <div class=\"modal-stat\">\n            <div class=\"mv\" style=\"font-size:1rem\">${s.pct.toFixed(1)}%</div>\n            <div class=\"ml\">Percent</div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"modal-section-title\">\ud83d\udccb Subject-wise Marks & Performance</div>\n      ${subjectsHtml || '<p style=\"color:var(--muted);font-size:.85rem\">Marks data not available</p>'}\n      ${totalHtml}\n      <div class=\"modal-section-title\" style=\"margin-top:18px\">\ud83d\udcdd Remarks</div>\n      ${backPaperHtml}${failSubsHtml}\n    </div>`;\n\n  document.getElementById('studentModal').style.display = 'flex';\n}\n\nfunction closeModal() {\n  document.getElementById('studentModal').style.display = 'none';\n}\n\nfunction closeModalOutside(e) {\n  if(e.target === document.getElementById('studentModal')) closeModal();\n}\n\ndocument.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });\n\n// ===== STUDENT COMPARISON =====\nconst _cmpFound = {1: false, 2: false};\n\nfunction cmpPreview(n) {\n  const roll = document.getElementById('cmpRoll'+n).value.trim();\n  const prev = document.getElementById('cmpPrev'+n);\n  const inp = document.getElementById('cmpRoll'+n);\n  \n  if(roll.length < 6) {\n    prev.textContent = '';\n    prev.className = 'cmp-preview';\n    inp.className = 'cmp-roll-input';\n    _cmpFound[n] = false;\n    updateCmpBtn();\n    return;\n  }\n  \n  let match = ROLL_INDEX[roll];\n  if(!match) {\n    const cands = Object.keys(ROLL_INDEX).filter(r=>r.startsWith(roll));\n    if(cands.length === 1) match = ROLL_INDEX[cands[0]];\n  }\n  \n  if(match) {\n    const s = match.student;\n    prev.textContent = `\u2713 ${s.name} \u00b7 ${YEAR_LABELS[match.year]} \u00b7 ${SEC_LABELS[match.sec]} \u00b7 SGPA ${s.sgpa.toFixed(2)}`;\n    prev.className = 'cmp-preview found';\n    inp.className = 'cmp-roll-input found';\n    _cmpFound[n] = true;\n  } else if(roll.length >= 10) {\n    prev.textContent = '\u2717 Roll number not found';\n    prev.className = 'cmp-preview notfound';\n    inp.className = 'cmp-roll-input notfound';\n    _cmpFound[n] = false;\n  } else {\n    prev.textContent = '';\n    prev.className = 'cmp-preview';\n    inp.className = 'cmp-roll-input';\n    _cmpFound[n] = false;\n  }\n  updateCmpBtn();\n}\n\nfunction updateCmpBtn() {\n  document.getElementById('cmpBtn').disabled = !(_cmpFound[1] && _cmpFound[2]);\n}\n\nfunction resolveRoll(val) {\n  const roll = val.trim();\n  let match = ROLL_INDEX[roll];\n  if(!match) {\n    const cands = Object.keys(ROLL_INDEX).filter(r=>r.startsWith(roll));\n    if(cands.length===1) match = ROLL_INDEX[cands[0]];\n  }\n  return match;\n}\n\nfunction runComparison() {\n  const m1 = resolveRoll(document.getElementById('cmpRoll1').value);\n  const m2 = resolveRoll(document.getElementById('cmpRoll2').value);\n  if(!m1 || !m2) return;\n  \n  const r = document.getElementById('cmpResult');\n  r.style.display = 'block';\n  r.innerHTML = buildComparisonHTML(m1, m2);\n}\n\nfunction buildComparisonHTML(m1, m2) {\n  const s1 = m1.student, s2 = m2.student;\n  const mk1 = MARKS_LOOKUP[s1.roll], mk2 = MARKS_LOOKUP[s2.roll];\n  const c1 = '#4f8dff', c2 = '#a78bfa';\n  \n  const grade1 = sgpaGradeLabel(s1.sgpa), grade2 = sgpaGradeLabel(s2.sgpa);\n  const gc1 = GRADE_COLORS[grade1==='F'?'Below':grade1]||'var(--muted)';\n  const gc2 = GRADE_COLORS[grade2==='F'?'Below':grade2]||'var(--muted)';\n  \n  // Header\n  let html = `<div class=\"cmp-result-table\" style=\"background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:4px;\">\n    <div style=\"display:grid;grid-template-columns:160px 1fr 1fr;border-bottom:1px solid var(--border);\">\n      <div style=\"padding:12px 14px;font-size:.68rem;color:var(--muted);font-family:'DM Mono',monospace;text-transform:uppercase;background:rgba(30,37,64,.5);display:flex;align-items:center;\">Category</div>\n      <div style=\"padding:14px 16px;border-left:1px solid var(--border);background:rgba(79,141,255,.06)\">\n        <div style=\"font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:${c1};margin-bottom:2px\">\ud83d\udd35 ${s1.name}</div>\n        <div style=\"font-size:.68rem;color:var(--muted);font-family:'DM Mono',monospace\">${s1.roll}</div>\n        <div style=\"font-size:.7rem;color:var(--muted);margin-top:2px\">${YEAR_LABELS[m1.year]} \u00b7 ${SEC_LABELS[m1.sec]}</div>\n      </div>\n      <div style=\"padding:14px 16px;border-left:1px solid var(--border);background:rgba(124,92,252,.06)\">\n        <div style=\"font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:${c2};margin-bottom:2px\">\ud83d\udfe3 ${s2.name}</div>\n        <div style=\"font-size:.68rem;color:var(--muted);font-family:'DM Mono',monospace\">${s2.roll}</div>\n        <div style=\"font-size:.7rem;color:var(--muted);margin-top:2px\">${YEAR_LABELS[m2.year]} \u00b7 ${SEC_LABELS[m2.sec]}</div>\n      </div>\n    </div>`;\n  \n  // Summary metrics\n  const metrics = [\n    {label:'Section Rank', v1:`#${s1.rank} / ${DATA[m1.year][m1.sec].n}`, v2:`#${s2.rank} / ${DATA[m2.year][m2.sec].n}`, win: s1.rank < s2.rank ? 1 : s2.rank < s1.rank ? 2 : 0, raw1: s1.rank, raw2: s2.rank, lower_better: true},\n    {label:'SGPA', v1:s1.sgpa.toFixed(2), v2:s2.sgpa.toFixed(2), win: s1.sgpa > s2.sgpa ? 1 : s2.sgpa > s1.sgpa ? 2 : 0, raw1:s1.sgpa, raw2:s2.sgpa},\n    {label:'Grade', v1:grade1, v2:grade2, win: s1.sgpa > s2.sgpa ? 1 : s2.sgpa > s1.sgpa ? 2 : 0},\n    {label:'Percentage', v1:s1.pct.toFixed(2)+'%', v2:s2.pct.toFixed(2)+'%', win: s1.pct > s2.pct ? 1 : s2.pct > s1.pct ? 2 : 0},\n  ];\n  if(mk1 && mk2 && mk1.obtained && mk2.obtained) {\n    metrics.push({label:'Marks Obtained', v1:mk1.obtained+' / '+mk1.max_total, v2:mk2.obtained+' / '+mk2.max_total, win: mk1.obtained > mk2.obtained ? 1 : mk2.obtained > mk1.obtained ? 2 : 0});\n  }\n  metrics.push({label:'Status', v1: mk1&&mk1.fail_subs.length?'\u26a0\ufe0f Back Paper':'\u2705 All Clear', v2: mk2&&mk2.fail_subs.length?'\u26a0\ufe0f Back Paper':'\u2705 All Clear', win: 0});\n\n  html += `<div style=\"background:rgba(30,37,64,.4);padding:7px 14px;font-size:.65rem;color:var(--highlight);font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--border);\">\ud83d\udcca Summary Comparison</div>`;\n  \n  for(const m of metrics) {\n    const w = m.win;\n    const c1bg = w===1?'rgba(0,212,170,.06)': w===2?'rgba(255,107,107,.04)':'';\n    const c2bg = w===2?'rgba(0,212,170,.06)': w===1?'rgba(255,107,107,.04)':'';\n    html += `<div style=\"display:grid;grid-template-columns:160px 1fr 1fr;border-bottom:1px solid rgba(30,37,64,.5);\">\n      <div style=\"padding:9px 14px;font-size:.72rem;color:var(--muted);font-family:'DM Mono',monospace;background:rgba(30,37,64,.3);border-right:1px solid var(--border);display:flex;align-items:center\">${m.label}</div>\n      <div style=\"padding:9px 16px;border-right:1px solid var(--border);background:${c1bg};display:flex;align-items:center;gap:7px\">\n        ${w===1?'<span style=\"width:16px;height:16px;border-radius:50%;background:var(--accent3);color:#000;font-size:.55rem;display:inline-flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0\">\u25b2</span>':''}\n        <span style=\"font-family:'DM Mono',monospace;font-weight:700;font-size:.82rem;color:${w===1?'var(--accent3)':w===2?'var(--accent4)':'var(--text)'}\">${m.v1}</span>\n      </div>\n      <div style=\"padding:9px 16px;background:${c2bg};display:flex;align-items:center;gap:7px\">\n        ${w===2?'<span style=\"width:16px;height:16px;border-radius:50%;background:var(--accent3);color:#000;font-size:.55rem;display:inline-flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0\">\u25b2</span>':''}\n        <span style=\"font-family:'DM Mono',monospace;font-weight:700;font-size:.82rem;color:${w===2?'var(--accent3)':w===1?'var(--accent4)':'var(--text)'}\">${m.v2}</span>\n      </div>\n    </div>`;\n  }\n  \n  // Subject comparison (only if both have marks data)\n  if(mk1 && mk2 && mk1.subjects && mk2.subjects && mk1.subjects.length && mk2.subjects.length) {\n    // Find common subjects\n    const subs1 = {}, subs2 = {};\n    mk1.subjects.forEach(s => subs1[s.code] = s);\n    mk2.subjects.forEach(s => subs2[s.code] = s);\n    const common = Object.keys(subs1).filter(c => subs2[c]);\n    \n    if(common.length > 0) {\n      html += `<div style=\"background:rgba(30,37,64,.4);padding:7px 14px;font-size:.65rem;color:var(--highlight);font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--border);border-top:1px solid var(--border);margin-top:4px;\">\ud83d\udcda Subject-wise Comparison (${common.length} common subjects)</div>`;\n      \n      for(const code of common) {\n        const sub1 = subs1[code], sub2 = subs2[code];\n        const win = sub1.total > sub2.total ? 1 : sub2.total > sub1.total ? 2 : 0;\n        const c1bg = win===1?'rgba(0,212,170,.05)': win===2?'rgba(255,107,107,.03)':'';\n        const c2bg = win===2?'rgba(0,212,170,.05)': win===1?'rgba(255,107,107,.03)':'';\n        const gc1s = GRADE_COLORS_MAP[sub1.grade]||'#6b7280';\n        const gc2s = GRADE_COLORS_MAP[sub2.grade]||'#6b7280';\n        const pct1 = sub1.total_max > 0 ? (sub1.total/sub1.total_max*100).toFixed(0) : 0;\n        const pct2 = sub2.total_max > 0 ? (sub2.total/sub2.total_max*100).toFixed(0) : 0;\n        \n        html += `<div style=\"display:grid;grid-template-columns:160px 1fr 1fr;border-bottom:1px solid rgba(30,37,64,.5);\">\n          <div style=\"padding:8px 14px;background:rgba(30,37,64,.3);border-right:1px solid var(--border);display:flex;flex-direction:column;gap:2px\">\n            <span style=\"font-family:'DM Mono',monospace;font-size:.72rem;color:var(--highlight);font-weight:700\">${code}</span>\n          </div>\n          <div style=\"padding:8px 16px;border-right:1px solid var(--border);background:${c1bg}\">\n            <div style=\"display:flex;align-items:center;gap:7px;margin-bottom:4px\">\n              ${win===1?'<span style=\"width:14px;height:14px;border-radius:50%;background:var(--accent3);color:#000;font-size:.5rem;display:inline-flex;align-items:center;justify-content:center;font-weight:800\">\u25b2</span>':''}\n              <span style=\"font-family:'DM Mono',monospace;font-weight:700;font-size:.82rem;color:${win===1?'var(--accent3)':win===2?'var(--accent4)':'var(--text)'}\">${sub1.total}/${sub1.total_max}</span>\n              <span style=\"font-size:.65rem;font-weight:700;color:${gc1s};margin-left:2px\">${sub1.grade}</span>\n              <span style=\"font-size:.62rem;padding:2px 5px;border-radius:4px;background:${sub1.status==='fail'?'rgba(255,107,107,.15)':'rgba(0,212,170,.15)'};color:${sub1.status==='fail'?'var(--accent4)':'var(--accent3)'};font-family:'DM Mono',monospace\">${sub1.status==='fail'?'F':'P'}</span>\n            </div>\n            <div style=\"height:4px;background:var(--surface);border-radius:2px;overflow:hidden\"><div style=\"width:${pct1}%;height:100%;border-radius:2px;background:${c1}\"></div></div>\n          </div>\n          <div style=\"padding:8px 16px;background:${c2bg}\">\n            <div style=\"display:flex;align-items:center;gap:7px;margin-bottom:4px\">\n              ${win===2?'<span style=\"width:14px;height:14px;border-radius:50%;background:var(--accent3);color:#000;font-size:.5rem;display:inline-flex;align-items:center;justify-content:center;font-weight:800\">\u25b2</span>':''}\n              <span style=\"font-family:'DM Mono',monospace;font-weight:700;font-size:.82rem;color:${win===2?'var(--accent3)':win===1?'var(--accent4)':'var(--text)'}\">${sub2.total}/${sub2.total_max}</span>\n              <span style=\"font-size:.65rem;font-weight:700;color:${gc2s};margin-left:2px\">${sub2.grade}</span>\n              <span style=\"font-size:.62rem;padding:2px 5px;border-radius:4px;background:${sub2.status==='fail'?'rgba(255,107,107,.15)':'rgba(0,212,170,.15)'};color:${sub2.status==='fail'?'var(--accent4)':'var(--accent3)'};font-family:'DM Mono',monospace\">${sub2.status==='fail'?'F':'P'}</span>\n            </div>\n            <div style=\"height:4px;background:var(--surface);border-radius:2px;overflow:hidden\"><div style=\"width:${pct2}%;height:100%;border-radius:2px;background:${c2}\"></div></div>\n          </div>\n        </div>`;\n      }\n    }\n  }\n  \n  // Win summary\n  let w1=0, w2=0;\n  metrics.forEach(m => { if(m.win===1) w1++; else if(m.win===2) w2++; });\n  const winner = w1 > w2 ? s1.name : w2 > w1 ? s2.name : null;\n  \n  html += `<div style=\"padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:rgba(30,37,64,.4);border-top:1px solid var(--border);\">\n    <div style=\"font-size:.75rem;color:var(--muted);font-family:'DM Mono',monospace\">\n      \ud83d\udd35 ${s1.name}: <strong style=\"color:${c1}\">${w1} edge${w1!==1?'s':''}</strong> &nbsp;|&nbsp; \ud83d\udfe3 ${s2.name}: <strong style=\"color:${c2}\">${w2} edge${w2!==1?'s':''}</strong>\n    </div>\n    ${winner ? `<div style=\"background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.3);padding:5px 14px;border-radius:20px;font-size:.78rem;font-weight:700;color:var(--accent3)\">\ud83c\udfc6 ${winner} leads overall</div>` : '<div style=\"font-size:.78rem;color:var(--muted)\">\ud83e\udd1d Tied</div>'}\n  </div>`;\n  \n  html += '</div>';\n  return html;\n}\n\n// ===== MAKE TABLE ROWS CLICKABLE =====\nconst _origRenderTableBody = renderTableBody;\nfunction renderTableBody(yr, sec, students, filter='') {\n  const tbody = document.getElementById('tbody-'+yr+'-'+sec);\n  const counter = document.getElementById('tbl-count-'+yr+'-'+sec);\n  if(!tbody) return;\n  const q = (filter||'').toLowerCase();\n  const seen = new Set();\n  const unique = students.filter(s => {\n    const k = s.roll+s.name+s.sgpa;\n    if(seen.has(k)) return false;\n    seen.add(k); return true;\n  });\n  const filtered = q ? unique.filter(s=> s.name.toLowerCase().includes(q) || s.roll.includes(q)) : unique;\n  if(counter) counter.textContent = filtered.length + ' student' + (filtered.length!==1?'s':'');\n  if(!filtered.length){\n    tbody.innerHTML = '<tr class=\"no-results\"><td colspan=\"6\">No students found</td></tr>';\n    return;\n  }\n  tbody.innerHTML = filtered.map(s=>{\n    const rc = s.rank===1?'rank-1':s.rank===2?'rank-2':s.rank===3?'rank-3':'rank-n';\n    const pc = sgpaClass(s.sgpa);\n    const grade = sgpaGradeLabel(s.sgpa);\n    const gc = GRADE_COLORS[grade==='F'?'Below':grade]||'var(--muted)';\n    const pctVal = (s.pct||0).toFixed(1);\n    return `<tr onclick=\"openStudentModal('${s.roll}','${yr}','${sec}')\" title=\"Click to view detailed marks\">\n      <td><span class=\"rank-badge ${rc}\">${s.rank}</span></td>\n      <td style=\"font-family:'DM Mono',monospace;font-size:.74rem;color:var(--muted)\">${s.roll}</td>\n      <td style=\"font-weight:600\">${s.name}</td>\n      <td><span class=\"sgpa-pill ${pc}\">${s.sgpa.toFixed(2)}</span></td>\n      <td style=\"font-weight:700;font-size:.82rem;color:${gc}\">${grade}</td>\n      <td style=\"font-family:'DM Mono',monospace;font-size:.8rem;color:var(--muted)\">${pctVal}%</td>\n    </tr>`;\n  }).join('');\n}\n\n\n// ===== SUBJECT-CODE SECTION COMPARISON =====\nconst SUBCODE_NAMES = {\"BAS301\": \"Math-III\", \"BCS301\": \"Data Structures\", \"BCS302\": \"Digital Electronics\", \"BCS303\": \"COA\", \"BCC301\": \"Soft Skills\", \"BCS351\": \"DS Lab\", \"BCS352\": \"DE Lab\", \"BCS353\": \"COA Lab\", \"BCC351\": \"Soft Skills Lab\", \"BCS501\": \"Automata\", \"BCAI501\": \"Machine Learning\", \"BCS503\": \"Networks\", \"BCS052\": \"Dept Elective-I\", \"BCAM051\": \"Dept Elective-II\", \"BCDS501\": \"Data Science\", \"BCDS051\": \"DS Elective\", \"BCDS551\": \"DS Lab\", \"BCAI551\": \"AI/ML Lab\", \"BCS551\": \"ML Lab\", \"BCS553\": \"Networks Lab\", \"BNC501\": \"NSS/NCC\", \"BCAI053\": \"AI Elective\", \"BAI701\": \"Deep Learning\", \"BAI070\": \"Prog Elective-IV\", \"BAI751\": \"DL Lab\", \"BCS752\": \"Major Project-I\", \"BCS753\": \"Industrial Training\", \"BCS754\": \"Seminar\"};\nconst SEC_COLORS = {\n  'aiml1': '#4f8dff', 'aiml2': '#a78bfa', 'ds1': '#00d4aa', 'ds2': '#ffc107'\n};\nconst SEC_FULL = {\n  'aiml1': 'CSE AIML-1', 'aiml2': 'CSE AIML-2', 'ds1': 'CSE DS-1', 'ds2': 'CSE DS-2'\n};\n\nfunction initSubcodeComparison(yr) {\n  const tabsEl = document.getElementById('sctabs-' + yr);\n  const cmpEl = document.getElementById('sccmp-' + yr);\n  if (!tabsEl || !cmpEl || tabsEl._init) return;\n  tabsEl._init = true;\n\n  const codes = Object.keys(SUBCODE_DATA[yr]);\n  if (!codes.length) { cmpEl.innerHTML = '<p style=\"color:var(--muted)\">No common subjects found.</p>'; return; }\n\n  // Build tabs\n  tabsEl.innerHTML = codes.map((code, i) =>\n    `<div class=\"subcode-tab${i===0?' active':''}\" onclick=\"renderSubcodeTable('${yr}','${code}',this)\">${code}</div>`\n  ).join('');\n\n  renderSubcodeTable(yr, codes[0], tabsEl.children[0]);\n}\n\nfunction renderSubcodeTable(yr, code, tabEl) {\n  // Update active tab\n  const tabsEl = tabEl.closest('.subcode-tabs');\n  tabsEl.querySelectorAll('.subcode-tab').forEach(t => t.classList.remove('active'));\n  tabEl.classList.add('active');\n\n  const cmpEl = document.getElementById('sccmp-' + yr);\n  const subData = SUBCODE_DATA[yr][code];\n  if (!subData) { cmpEl.innerHTML = '<p style=\"color:var(--muted)\">No data.</p>'; return; }\n\n  const subName = SUBCODE_NAMES[code] || code;\n  const secs = Object.keys(subData);\n  const totalMax = subData[secs[0]].total_max;\n  const intMax = subData[secs[0]].int_max;\n  const extMax = subData[secs[0]].ext_max;\n  const hasComponents = extMax > 0;\n\n  // Find best section (highest avg)\n  const bestSec = secs.reduce((a, b) => subData[a].avg > subData[b].avg ? a : b);\n  const maxAvg = subData[bestSec].avg;\n\n  const GRADE_ORDER = ['O','A+','A','B+','B','F'];\n\n  let html = `<div style=\"margin-bottom:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;\">\n    <div>\n      <div style=\"font-family:'DM Mono',monospace;font-size:.72rem;color:var(--highlight);font-weight:700\">${code}</div>\n    </div>\n    <div style=\"margin-left:auto;font-size:.72rem;color:var(--muted);font-family:'DM Mono',monospace\">Max Marks: ${totalMax}</div>\n  </div>`;\n\n  // Summary cards row\n  html += `<div style=\"display:grid;grid-template-columns:repeat(${secs.length},1fr);gap:10px;margin-bottom:18px;\">`;\n  for (const sec of secs) {\n    const d = subData[sec];\n    const isBest = sec === bestSec;\n    const c = SEC_COLORS[sec];\n    const pct = d.avg_pct;\n    html += `<div style=\"background:${c}11;border:1px solid ${c}44;border-radius:12px;padding:14px 12px;text-align:center;position:relative;\">\n      ${isBest ? `<div style=\"position:absolute;top:6px;right:8px;font-size:.6rem;background:${c};color:#000;padding:2px 6px;border-radius:10px;font-weight:700;font-family:'DM Mono',monospace\">BEST</div>` : ''}\n      <div style=\"font-family:'DM Mono',monospace;font-size:.65rem;color:${c};font-weight:700;margin-bottom:4px\">${SEC_FULL[sec]}</div>\n      <div style=\"font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;color:${isBest?c:'var(--text)'}\">${d.avg}</div>\n      <div style=\"font-size:.62rem;color:var(--muted);font-family:'DM Mono',monospace\">avg / ${totalMax}</div>\n      <div style=\"margin-top:8px;height:5px;border-radius:3px;background:var(--surface);overflow:hidden\">\n        <div style=\"width:${pct}%;height:100%;border-radius:3px;background:${c}\"></div>\n      </div>\n      <div style=\"font-size:.68rem;color:var(--muted);margin-top:5px;font-family:'DM Mono',monospace\">${pct}% avg</div>\n    </div>`;\n  }\n  html += '</div>';\n\n  // Detailed comparison table\n  html += `<div style=\"overflow-x:auto;-webkit-overflow-scrolling:touch;\">\n  <table class=\"subcode-table\">\n    <thead><tr>\n      <th>Metric</th>\n      ${secs.map(s => `<th style=\"color:${SEC_COLORS[s]}\">${SEC_FULL[s]}</th>`).join('')}\n    </tr></thead>\n    <tbody>`;\n\n  // Row: students\n  html += `<tr><td style=\"color:var(--muted);font-family:'DM Mono',monospace;font-size:.72rem\">Students</td>`;\n  for (const sec of secs) html += `<td style=\"font-family:'DM Mono',monospace;font-weight:600\">${subData[sec].n}</td>`;\n  html += '</tr>';\n\n  // Row: avg total\n  html += `<tr><td style=\"color:var(--muted);font-family:'DM Mono',monospace;font-size:.72rem\">Avg Total</td>`;\n  for (const sec of secs) {\n    const d = subData[sec];\n    const isBest = sec === bestSec;\n    html += `<td>\n      <span style=\"font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:${isBest?SEC_COLORS[sec]:'var(--text)'}\">${d.avg}</span>\n      <span style=\"font-size:.65rem;color:var(--muted)\">/${totalMax}</span>\n      <div class=\"subcode-bar\"><div class=\"subcode-bar-fill\" style=\"width:${d.avg_pct}%;background:${SEC_COLORS[sec]}\"></div></div>\n    </td>`;\n  }\n  html += '</tr>';\n\n  // Row: avg internal (if applicable)\n  if (hasComponents) {\n    html += `<tr><td style=\"color:var(--muted);font-family:'DM Mono',monospace;font-size:.72rem\">Avg Internal</td>`;\n    for (const sec of secs) {\n      const d = subData[sec];\n      const pct = intMax > 0 ? (d.avg_int/intMax*100).toFixed(0) : 0;\n      html += `<td><span style=\"font-family:'DM Mono',monospace;font-weight:600\">${d.avg_int}</span><span style=\"font-size:.65rem;color:var(--muted)\">/${intMax}</span></td>`;\n    }\n    html += '</tr>';\n\n    html += `<tr><td style=\"color:var(--muted);font-family:'DM Mono',monospace;font-size:.72rem\">Avg External</td>`;\n    for (const sec of secs) {\n      const d = subData[sec];\n      html += `<td><span style=\"font-family:'DM Mono',monospace;font-weight:600\">${d.avg_ext}</span><span style=\"font-size:.65rem;color:var(--muted)\">/${extMax}</span></td>`;\n    }\n    html += '</tr>';\n  }\n\n  // Row: pass %\n  html += `<tr><td style=\"color:var(--muted);font-family:'DM Mono',monospace;font-size:.72rem\">Pass Rate</td>`;\n  for (const sec of secs) {\n    const d = subData[sec];\n    const c = d.pass_pct >= 90 ? 'var(--accent3)' : d.pass_pct >= 70 ? 'var(--accent5)' : 'var(--accent4)';\n    html += `<td style=\"font-family:'DM Mono',monospace;font-weight:700;color:${c}\">${d.pass_pct}%</td>`;\n  }\n  html += '</tr>';\n\n  // Grade breakdown rows\n  html += `<tr style=\"background:rgba(30,37,64,.3)\"><td colspan=\"${secs.length+1}\" style=\"font-size:.65rem;color:var(--highlight);font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px\">Grade Distribution</td></tr>`;\n  for (const g of GRADE_ORDER) {\n    const anyHas = secs.some(s => (subData[s].grades[g]||0) > 0);\n    if (!anyHas) continue;\n    const gc = {'O':'#4f8dff','A+':'#7c5cfc','A':'#00d4aa','B+':'#ffc107','B':'#ff8c42','F':'#ff6b6b'}[g] || 'var(--muted)';\n    html += `<tr><td style=\"font-weight:700;color:${gc};font-family:'DM Mono',monospace;font-size:.75rem\">${g}</td>`;\n    for (const sec of secs) {\n      const cnt = subData[sec].grades[g] || 0;\n      const pct = subData[sec].n > 0 ? (cnt/subData[sec].n*100).toFixed(0) : 0;\n      html += `<td style=\"font-family:'DM Mono',monospace\">\n        <span style=\"font-weight:700;color:${gc}\">${cnt}</span>\n        <span style=\"font-size:.65rem;color:var(--muted)\"> (${pct}%)</span>\n      </td>`;\n    }\n    html += '</tr>';\n  }\n\n  html += '</tbody></table></div>';\n  cmpEl.innerHTML = html;\n}\n\nwindow.addEventListener('load', ()=>{ initYear('2nd'); });\n";
+</script>
+
+</body>
+</html>
