@@ -12,7 +12,7 @@
    AKGEC RESULT ANALYSIS — Upload App Styles
    ═══════════════════════════════════════════════ */
 :root {
-  --bg: #04091a;
+  --bg: #060810;
   --surface: #0e1120;
   --card: #131828;
   --card2: #181e30;
@@ -722,10 +722,10 @@ body::before {
         <div class="config-field">
           <label>Academic Year</label>
           <select id="cfgYear">
-            <option value="2nd">2nd Year </option>
-            <option value="3rd" selected>3rd Year</option>
-            <option value="4th">4th Year</option>
-            <option value="1st">1st Year</option>
+            <option value="2nd">2nd Year (Sem III)</option>
+            <option value="3rd" selected>3rd Year (Sem V)</option>
+            <option value="4th">4th Year (Sem VII)</option>
+            <option value="1st">1st Year (Sem I)</option>
             <option value="custom">Custom…</option>
           </select>
         </div>
@@ -778,9 +778,9 @@ body::before {
       <p>Grade distribution, pass rates, and SGPA charts per section</p>
     </div>
     <div class="feature-tile">
-      <div class="ft-icon">🧑‍🎓</div>
-      <h4>Student Cards</h4>
-      <p>Click any student for full subject-wise breakdown</p>
+      <div class="ft-icon">🏆</div>
+      <h4>Rank Lists</h4>
+      <p>Complete rank list with SGPA, grade, and percentage</p>
     </div>
     <div class="feature-tile">
       <div class="ft-icon">📋</div>
@@ -946,7 +946,8 @@ function parseSheet(ws){
         }
       }
     }
-    if(!sgpa||sgpa<0||sgpa>10) sgpa=recomputeSGPA(subjects);
+    // If no CP() found, student has no official result (UFM/detained/absent) — skip entirely
+    if(!sgpa||sgpa<0||sgpa>10) continue;
 
     const totalObtained=subjects.reduce((a,s)=>a+s.total,0);
     const totalMax=subjects.reduce((a,s)=>a+s.total_max,0);
